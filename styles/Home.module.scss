@@ -1,0 +1,50 @@
+.content {
+  display: flex;
+  height: calc(100% - 200px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.greeting {
+  display: inline-flex;
+  font-size: 6em;
+  font-weight: 700;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.description {
+  margin-top: 20px;
+  font-size: 2em;
+  width: 80%;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.navigation {
+  margin-top: 50px;
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+
+  a {
+    border-radius: 50%;
+  }
+}
+
+.button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, gray 0%, lightgray 100%);
+  overflow: hidden;
+}

@@ -1,0 +1,43 @@
+.content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.blob {
+  width: 400px;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  transform-origin: 50% 50%;
+  border-radius: 50%;
+  z-index: -1;
+  background: linear-gradient(90deg, aquamarine 0%, mediumpurple 25%, pink 50%, sandybrown 75%, skyblue 100%);
+  background-size: 400%;
+  animation: blob 15s infinite;
+  opacity: 0.8;
+}
+
+@keyframes blob {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.blur {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  backdrop-filter: blur(100px);
+}
