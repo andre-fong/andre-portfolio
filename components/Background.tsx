@@ -6,7 +6,7 @@ import { useEffect, useCallback } from "react";
 
 export default function Background() {
   const { theme } = useTheme();
-  const color = theme === "dark" ? "rgb(40,40,40)" : "rgb(245,245,245)";
+  const color = theme === "dark" ? "rgb(30,30,30)" : "rgb(245,245,245)";
 
   const { width, height } = useScreenSize();
 
@@ -21,12 +21,12 @@ export default function Background() {
       const x = clientX - width / 2;
       const y = clientY - height / 2;
 
-      // blob.animate(
-      //   { left: `${clientX}px`, top: `${clientY}px` },
-      //   { duration: 5000, fill: "forwards", easing: "ease-out" }
-      // );
-      blob.style.left = `${width / 2 - x / 6}px`;
-      blob.style.top = `${height / 2 - y / 6}px`;
+      blob.animate(
+        { left: `${clientX}px`, top: `${clientY}px` },
+        { duration: 5000, fill: "forwards", easing: "ease-out" }
+      );
+      // blob.style.left = `${width / 2 - x / 6}px`;
+      // blob.style.top = `${height / 2 - y / 6}px`;
     },
     [width, height]
   );
