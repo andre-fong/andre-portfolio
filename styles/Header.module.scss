@@ -1,0 +1,117 @@
+.content {
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: clamp(20px, 4vw, 100px);
+  padding-right: clamp(20px, 4vw, 100px);
+  color: white;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 5vw, 30px);
+  font-size: 1.2em;
+  height: 100%;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.link {
+  display: flex;
+  position: relative;
+  align-items: center;
+  cursor: pointer;
+  height: 2em;
+}
+
+.visited {
+  position: relative;
+  font-weight: 700;
+}
+.visited::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: white;
+  margin-top: 3px;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 0;
+  height: 4px;
+  border-radius: 999px;
+  background: white;
+  margin-top: 3px;
+  transition: width 0.25s;
+}
+.link:hover::after {
+  width: 100%;
+}
+
+.logo {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+}
+.picture {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: inherit;
+}
+
+.dropdown {
+  position: absolute;
+  top: 25%;
+  background: rgba(255, 255, 255, 0.8);
+  width: 50px;
+  height: 210px;
+  z-index: 2;
+  border-radius: 999px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.action:first-child {
+  margin-top: 55px;
+}
+.action {
+  color: black;
+  font-size: 2em;
+  transition: scale 0.15s;
+}
+.action:hover {
+  scale: 1.1;
+}

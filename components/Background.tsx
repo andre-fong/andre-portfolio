@@ -21,10 +21,12 @@ export default function Background() {
       const x = clientX - width / 2;
       const y = clientY - height / 2;
 
-      blob.animate(
-        { left: `${width / 2 - x / 6}px`, top: `${height / 2 - y / 6}px` },
-        { duration: 250, fill: "forwards", easing: "ease-in-out" }
-      );
+      // blob.animate(
+      //   { left: `${clientX}px`, top: `${clientY}px` },
+      //   { duration: 5000, fill: "forwards", easing: "ease-out" }
+      // );
+      blob.style.left = `${width / 2 - x / 6}px`;
+      blob.style.top = `${height / 2 - y / 6}px`;
     },
     [width, height]
   );
@@ -49,7 +51,7 @@ export default function Background() {
         id="blob"
         animate={{
           rotate: [0, 90, 180, 270, 360],
-          scaleX: [1, 1.3, 1, 1.2, 1],
+          scaleX: [1, 1.5, 1, 1.3, 1],
         }}
         transition={{
           duration: 5,
