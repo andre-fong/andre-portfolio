@@ -15,8 +15,16 @@ export default function Greeting() {
       );
     }, 5000);
 
-    animate("#current", { y: "1.5em" }, { duration: 0.5, type: "spring" });
-    animate("#next", { y: "1.5em" }, { duration: 0.5, type: "spring" });
+    animate(
+      "#current",
+      { y: "1.5em" },
+      { duration: 0.5, delay: 0.5, type: "spring" }
+    );
+    animate(
+      "#next",
+      { y: "1.5em" },
+      { duration: 0.5, delay: 0.5, type: "spring" }
+    );
 
     setTimeout(() => {
       setIndexShown(currentIndex);
@@ -26,6 +34,14 @@ export default function Greeting() {
       animate("#current", { y: "0em" }, { duration: 0 });
       animate("#next", { y: "0em" }, { duration: 0 });
     }, 3500);
+
+    return () => {
+      // clear all timeouts
+      let id = window.setTimeout(() => {}, 0);
+      while (id--) {
+        window.clearTimeout(id);
+      }
+    };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);

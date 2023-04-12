@@ -6,6 +6,7 @@ import Greeting from "@/components/Greeting";
 import PersonIcon from "@mui/icons-material/Person";
 import ComputerIcon from "@mui/icons-material/Computer";
 import WorkIcon from "@mui/icons-material/Work";
+import { motion } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
 const ptSansNarrow = PT_Sans_Narrow({
@@ -14,6 +15,29 @@ const ptSansNarrow = PT_Sans_Narrow({
 });
 
 export default function Home() {
+  const linksContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.6,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const linkContainer = {
+    hidden: {
+      opacity: 0,
+      x: 50,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.3, type: "easeOut" },
+    },
+  };
+
   return (
     <>
       <Head>
@@ -75,7 +99,13 @@ export default function Home() {
       </Head>
 
       <main className={`${styles.content} ${inter.className}`}>
-        <div className={styles.text}>
+        <motion.div
+          initial={{ opacity: 0, x: 100, y: 15, rotateZ: 7 }}
+          animate={{ opacity: 1, x: 0, y: 0, rotateZ: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, type: "spring" }}
+          // exit={{ opacity: 0 }} // TODO: Fix exit animation
+          className={styles.text}
+        >
           <div className={`${styles.greeting} ${ptSansNarrow.className}`}>
             <Greeting />
             <span className={styles.introduction}>ANDRE!</span>
@@ -93,26 +123,52 @@ export default function Home() {
             </span>
             .
           </div>
-        </div>
-        <div className={styles.navigation}>
-          <Link href="/about">
-            <div className={styles.button} title="About Me">
-              <PersonIcon fontSize="inherit" />
-            </div>
-          </Link>
+        </motion.div>
+        <motion.ol
+          variants={linksContainer}
+          initial="hidden"
+          animate="visible"
+          className={styles.navigation}
+        >
+          <motion.li variants={linkContainer}>
+            <motion.div
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              exit={{ opacity: 0 }}
+            >
+              <Link href="/about">
+                <div className={styles.button} title="About Me">
+                  <PersonIcon fontSize="inherit" />
+                </div>
+              </Link>
+            </motion.div>
+          </motion.li>
 
-          <Link href="/projects">
-            <div className={styles.button} title="My Projects">
-              <ComputerIcon fontSize="inherit" />
-            </div>
-          </Link>
+          <motion.li variants={linkContainer}>
+            <motion.div
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+              exit={{ opacity: 0 }}
+            >
+              <Link href="/projects">
+                <div className={styles.button} title="My Projects">
+                  <ComputerIcon fontSize="inherit" />
+                </div>
+              </Link>
+            </motion.div>
+          </motion.li>
 
-          <Link href="/experience">
-            <div className={styles.button} title="My Experience">
-              <WorkIcon fontSize="inherit" />
-            </div>
-          </Link>
-        </div>
+          <motion.li variants={linkContainer}>
+            <motion.div
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              exit={{ opacity: 0 }}
+            >
+              <Link href="/experience">
+                <div className={styles.button} title="My Experience">
+                  <WorkIcon fontSize="inherit" />
+                </div>
+              </Link>
+            </motion.div>
+          </motion.li>
+        </motion.ol>
       </main>
     </>
   );

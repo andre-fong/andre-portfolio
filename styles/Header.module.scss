@@ -27,11 +27,13 @@
   align-items: center;
   cursor: pointer;
   height: 2em;
+  letter-spacing: 0.18px;
 }
 
 .visited {
   position: relative;
   font-weight: 700;
+  letter-spacing: 0px;
 }
 .visited::before {
   content: "";

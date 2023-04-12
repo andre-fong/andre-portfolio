@@ -59,7 +59,7 @@ export default function Header() {
           whileTap={{ scale: 1.1 }}
           onClick={toggleDropdown}
         >
-          <Image src="/logo.jpg" fill sizes="50px" alt="Andre Fong" />
+          <Image src="/logo.jpg" fill sizes="50px" alt="Andre Fong" priority />
         </motion.div>
 
         <AnimatePresence>
