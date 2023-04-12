@@ -23,7 +23,7 @@ export default function Background() {
 
       blob.animate(
         { left: `${clientX}px`, top: `${clientY}px` },
-        { duration: 5000, fill: "forwards", easing: "ease-out" }
+        { duration: 4000, fill: "forwards", easing: "ease-in-out" }
       );
       // blob.style.left = `${width / 2 - x / 6}px`;
       // blob.style.top = `${height / 2 - y / 6}px`;
@@ -56,7 +56,7 @@ export default function Background() {
         transition={{
           duration: 5,
           repeat: Infinity,
-          ease: "linear",
+          ease: "easeInOut",
           times: [0, 0.25, 0.5, 0.75, 1],
         }}
       ></motion.div>
