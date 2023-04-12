@@ -1,0 +1,30 @@
+.container {
+  text-align: right;
+  width: 420px;
+  height: auto;
+  overflow: hidden;
+  padding: 10px 0 20px 100px;
+  margin-top: -10px;
+  margin-left: -100px;
+}
+
+.greetings_container {
+  position: relative;
+  width: 155px;
+  height: 1px;
+}
+
+.currentGreeting {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  left: -100px;
+}
+
+.nextGreeting {
+  position: absolute;
+  word-break: keep-all;
+  right: 0;
+  top: -1.5em;
+  text-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
+}

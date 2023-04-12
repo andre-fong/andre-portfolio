@@ -23,10 +23,11 @@ export default function Home() {
       <main className={`${styles.content} ${inter.className}`}>
         <div className={styles.text}>
           <div className={`${styles.greeting} ${ptSansNarrow.className}`}>
-            <Greeting />, I{"'"}M ANDRE!
+            <Greeting />
+            <span className={styles.introduction}>ANDRE!</span>
           </div>
           <div className={`${styles.description} ${ptSansNarrow.className}`}>
-            I{"'"}M A FULL STACK DEVELOPER CURRENTLY WORKING @{" "}
+            I&#39;M A FULL STACK DEVELOPER CURRENTLY WORKING @{" "}
             <span className={styles.verto}>
               <a
                 href="https://verto.health/"
