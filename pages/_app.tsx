@@ -10,7 +10,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
     <>
       <ThemeProvider>
         <Header />
-        <AnimatePresence exitBeforeEnter mode="wait">
+        <AnimatePresence mode="wait">
           <Component {...pageProps} key={router.pathname} />
         </AnimatePresence>
         <Background />
