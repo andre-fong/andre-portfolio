@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "@/styles/Greeting.module.scss";
-import { useAnimate } from "framer-motion";
+import { useAnimate, motion } from "framer-motion";
+import SlideReveal from "@/components/SlideReveal";
 
 export default function Greeting() {
   const greetings = ["HEY", "你好", "HOLA", "よー", "EHI", "안녕"];
@@ -48,7 +49,12 @@ export default function Greeting() {
 
   return (
     <>
-      <div className={styles.container} ref={scope}>
+      <motion.div
+        className={styles.container}
+        ref={scope}
+        exit={{ clipPath: "inset(0 0 100% 0)" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
         <div className={styles.greetings_container}>
           <div id="current" className={styles.currentGreeting}>
             {greetings[indexShown]}
@@ -57,8 +63,24 @@ export default function Greeting() {
             {greetings[currentIndex]}
           </div>
         </div>
-        <span>, I&#39;M&nbsp;</span>
-      </div>
+        <span>
+          {", I'M"
+            .split("")
+            .map((letter, index) =>
+              letter === " " ? (
+                " "
+              ) : (
+                <SlideReveal
+                  key={index}
+                  content={letter}
+                  classname={styles.description_text}
+                  random
+                />
+              )
+            )}
+          &nbsp;
+        </span>
+      </motion.div>
     </>
   );
 }

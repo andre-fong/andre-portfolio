@@ -7,6 +7,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import ComputerIcon from "@mui/icons-material/Computer";
 import WorkIcon from "@mui/icons-material/Work";
 import { motion } from "framer-motion";
+import SlideReveal from "@/components/SlideReveal";
 
 const inter = Inter({ subsets: ["latin"] });
 const ptSansNarrow = PT_Sans_Narrow({
@@ -103,25 +104,62 @@ export default function Home() {
           initial={{ opacity: 0, x: 100, y: 15, rotateZ: 7 }}
           animate={{ opacity: 1, x: 0, y: 0, rotateZ: 0 }}
           transition={{ duration: 0.8, delay: 0.15, type: "spring" }}
-          // exit={{ opacity: 0 }} // TODO: Fix exit animation
           className={styles.text}
         >
           <div className={`${styles.greeting} ${ptSansNarrow.className}`}>
             <Greeting />
-            <span className={styles.introduction}>ANDRE!</span>
+            <span className={styles.introduction}>
+              {"ANDRE!".split("").map((letter, index) => (
+                <SlideReveal
+                  key={index}
+                  random
+                  classname={`${styles.description_text} ${ptSansNarrow.className}`}
+                  content={letter}
+                />
+              ))}
+            </span>
           </div>
           <div className={`${styles.description} ${ptSansNarrow.className}`}>
-            I&#39;M A FULL STACK DEVELOPER CURRENTLY WORKING @{" "}
-            <span className={styles.verto}>
+            {"I'M A FULL STACK DEVELOPER CURRENTLY WORKING @ "
+              .split("")
+              .map((letter, index) =>
+                letter === " " ? (
+                  " "
+                ) : (
+                  <SlideReveal
+                    key={index}
+                    random
+                    classname={`${styles.description_text} ${ptSansNarrow.className}`}
+                    content={letter}
+                  />
+                )
+              )}
+            <motion.span
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeIn" }}
+              className={styles.verto}
+            >
               <a
                 href="https://verto.health/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                VERTO HEALTH
+                {"VERTO HEALTH."
+                  .split("")
+                  .map((letter, index) =>
+                    letter === " " ? (
+                      " "
+                    ) : (
+                      <SlideReveal
+                        key={index}
+                        random
+                        classname={`${styles.description_text} ${ptSansNarrow.className}`}
+                        content={letter}
+                      />
+                    )
+                  )}
               </a>
-            </span>
-            .
+            </motion.span>
           </div>
         </motion.div>
         <motion.ol
@@ -133,7 +171,7 @@ export default function Home() {
           <motion.li variants={linkContainer}>
             <motion.div
               transition={{ duration: 0.5, ease: "easeOut" }}
-              exit={{ opacity: 0 }}
+              exit={{ opacity: 0, scale: 0 }}
             >
               <Link href="/about">
                 <div className={styles.button} title="About Me">
@@ -145,8 +183,8 @@ export default function Home() {
 
           <motion.li variants={linkContainer}>
             <motion.div
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              exit={{ opacity: 0, scale: 0 }}
             >
               <Link href="/projects">
                 <div className={styles.button} title="My Projects">
@@ -158,8 +196,8 @@ export default function Home() {
 
           <motion.li variants={linkContainer}>
             <motion.div
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              exit={{ opacity: 0, scale: 0 }}
             >
               <Link href="/experience">
                 <div className={styles.button} title="My Experience">

@@ -1,0 +1,6 @@
+.container::after {
+  content: attr(aria-label);
+  height: 0;
+  color: transparent;
+  text-shadow: none;
+}
