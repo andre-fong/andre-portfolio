@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Andre Fong</title>
+        <title>Andre Fong | Portfolio</title>
         {/* Favicons */}
         <link
           rel="apple-touch-icon"
