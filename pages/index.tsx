@@ -125,19 +125,17 @@ export default function Home() {
           </div>
           <div className={`${styles.description} ${ptSansNarrow.className}`}>
             {"I'M A FULL STACK DEVELOPER CURRENTLY WORKING @ "
-              .split("")
-              .map((letter, index) =>
-                letter === " " ? (
-                  " "
-                ) : (
+              .split(" ")
+              .map((letter, index) => (
+                <>
                   <SlideReveal
                     key={index}
                     random
                     classname={`${styles.description_text} ${ptSansNarrow.className}`}
                     content={letter}
-                  />
-                )
-              )}
+                  />{" "}
+                </>
+              ))}
             <motion.span
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5, ease: "easeIn" }}
@@ -148,20 +146,16 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {"VERTO HEALTH."
-                  .split("")
-                  .map((letter, index) =>
-                    letter === " " ? (
-                      " "
-                    ) : (
-                      <SlideReveal
-                        key={index}
-                        random
-                        classname={`${styles.description_text} ${ptSansNarrow.className}`}
-                        content={letter}
-                      />
-                    )
-                  )}
+                {"VERTO HEALTH.".split(" ").map((letter, index) => (
+                  <>
+                    <SlideReveal
+                      key={index}
+                      random
+                      classname={`${styles.description_text} ${ptSansNarrow.className}`}
+                      content={letter}
+                    />{" "}
+                  </>
+                ))}
               </a>
             </motion.span>
           </div>
