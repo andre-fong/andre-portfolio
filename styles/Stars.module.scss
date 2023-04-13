@@ -1,0 +1,49 @@
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // height: 100vh;
+  // height: 100svh;   // for mobile devices
+  z-index: 1;
+  background: radial-gradient(ellipse at bottom, rgb(0, 20, 40) 0%, black 100%);
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 1px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: white;
+  opacity: 0;
+
+  box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.112);
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+@keyframes blink {
+  from, to {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+}

@@ -1,7 +1,14 @@
 import React from "react";
 import Head from "next/head";
+import { useBlobSwitch, useBackgroundColor } from "@/components/Background";
+import { motion } from "framer-motion";
+import styles from "@/styles/Experience.module.scss";
+import Stars from "@/components/Stars";
 
 export default function Experience() {
+  useBlobSwitch(false);
+  // useBackgroundColor("rgb(20, 20, 20)");
+
   return (
     <>
       <Head>
@@ -64,9 +71,11 @@ export default function Experience() {
           content="Andre Fong is a full stack engineer developing with React's Next.js and working at Verto Health; specializing in automated testing with Cypress."
         />
       </Head>
-      <div>
+      <motion.div className={styles.stars}>
         <div>Experience</div>
-      </div>
+      </motion.div>
+
+      <Stars count={150} />
     </>
   );
 }

@@ -42,6 +42,7 @@ export default function Background() {
   return (
     <div
       className={styles.content}
+      id="bg"
       style={{
         backgroundColor: color,
       }}
@@ -63,4 +64,35 @@ export default function Background() {
       <div className={styles.blur}></div>
     </div>
   );
+}
+
+export function useBlobSwitch(on: boolean) {
+  useEffect(() => {
+    const blob = document.getElementById("blob") as HTMLDivElement;
+    if (!blob) return;
+
+    if (on) {
+      blob.animate(
+        { opacity: 1 },
+        { duration: 500, fill: "forwards", easing: "ease-in-out", delay: 500 }
+      );
+    } else {
+      blob.animate(
+        { opacity: 0 },
+        { duration: 500, fill: "forwards", easing: "ease-in-out" }
+      );
+    }
+  }, [on]);
+}
+
+export function useBackgroundColor(color: string) {
+  useEffect(() => {
+    const bg = document.getElementById("bg") as HTMLDivElement;
+    if (!bg) return;
+
+    bg.animate(
+      { backgroundColor: color },
+      { duration: 500, fill: "forwards", easing: "ease-in-out" }
+    );
+  }, [color]);
 }

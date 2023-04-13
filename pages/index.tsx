@@ -8,6 +8,7 @@ import ComputerIcon from "@mui/icons-material/Computer";
 import WorkIcon from "@mui/icons-material/Work";
 import { motion } from "framer-motion";
 import SlideReveal from "@/components/SlideReveal";
+import { useBlobSwitch, useBackgroundColor } from "@/components/Background";
 
 const inter = Inter({ subsets: ["latin"] });
 const ptSansNarrow = PT_Sans_Narrow({
@@ -16,6 +17,9 @@ const ptSansNarrow = PT_Sans_Narrow({
 });
 
 export default function Home() {
+  useBlobSwitch(true);
+  useBackgroundColor("rgb(30, 30, 30)");
+
   const linksContainer = {
     hidden: { opacity: 0 },
     visible: {
