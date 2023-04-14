@@ -26,7 +26,7 @@ export default function Stars({ count }: StarProps) {
       const x = clientX - width / 2;
       const y = clientY - height / 2;
 
-      animate(`.${styles.star}`, { x: -x / 10, y: -y / 10 }, { duration: 0 });
+      animate("#stars_container", { x: -x / 10, y: -y / 10 }, { duration: 0 });
     },
     [width, height, animate]
   );
@@ -45,27 +45,29 @@ export default function Stars({ count }: StarProps) {
       exit={{ clipPath: "circle(0px at center)" }}
       transition={{ duration: 0.8, ease: "easeIn" }}
       className={styles.container}
+      ref={scope}
     >
       <motion.div
         initial={{ clipPath: "circle(0px at center)" }}
         animate={{ clipPath: "circle(100% at center)" }}
         transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
         className={styles.content}
-        ref={scope}
       >
-        {[...Array(count)].map((_, index) => (
-          <div
-            key={index}
-            className={styles.star}
-            style={{
-              top: `${getRandomNumber(120) - 10}%`,
-              left: `${getRandomNumber(120) - 10}%`,
-              animationDelay: `${getRandomNumber(10) / 3}s`,
-              animationDuration: `${getRandomNumber(4) + 4}s`,
-              width: `${getRandomNumber(22) / 10}px`,
-            }}
-          />
-        ))}
+        <motion.div id="stars_container" className={styles.stars_container}>
+          {[...Array(count)].map((_, index) => (
+            <div
+              key={index}
+              className={styles.star}
+              style={{
+                top: `${getRandomNumber(120) - 10}%`,
+                left: `${getRandomNumber(120) - 10}%`,
+                animationDelay: `${getRandomNumber(10) / 3}s`,
+                animationDuration: `${getRandomNumber(4) + 4}s`,
+                width: `${getRandomNumber(22) / 10}px`,
+              }}
+            />
+          ))}
+        </motion.div>
       </motion.div>
     </motion.div>
   );
