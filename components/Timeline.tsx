@@ -47,7 +47,7 @@ export default function Timeline({ experience }: TimelineProps) {
 
       <motion.div
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
       >
         <motion.ol
           className={styles.points_container}
