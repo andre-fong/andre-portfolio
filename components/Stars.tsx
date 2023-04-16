@@ -44,7 +44,7 @@ export default function Stars({ count }: StarProps) {
     <motion.div
       initial={{ clipPath: "circle(100% at center)" }}
       exit={{ clipPath: "circle(0px at center)" }}
-      transition={{ duration: 0.8, ease: "easeIn" }}
+      transition={{ duration: 0.8, delay: 0.3, ease: "easeIn" }}
       className={styles.container}
       ref={scope}
     >
