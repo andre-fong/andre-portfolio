@@ -4,6 +4,7 @@ import { Experience } from "@/pages/experience";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 
 interface TimelineProps {
   experience: Experience[];
@@ -70,15 +71,23 @@ export default function Timeline({ experience }: TimelineProps) {
                   style={{ backgroundColor: item.secondaryColor }}
                 >
                   {index % 2 && (
-                    <div className={styles.icon_container}>
-                      <Image src={`/${item.icon}`} alt={item.title} fill />
-                    </div>
+                    <>
+                      <div className={styles.icon_container}>
+                        <Link href={item.link}>
+                          <Image src={`/${item.icon}`} alt={item.title} fill />
+                        </Link>
+                      </div>
+                      <Link href={item.link}>
+                        <div className={styles.description}>
+                          <div className={styles.title}>{item.year}</div>
+                          <div className={styles.subtitle}>{item.title}</div>
+                          <div className={styles.paragraph}>
+                            {item.description}
+                          </div>
+                        </div>
+                      </Link>
+                    </>
                   )}
-                  <div className={styles.description}>
-                    <div className={styles.title}>{item.year}</div>
-                    <div className={styles.subtitle}>{item.title}</div>
-                    <div className={styles.paragraph}>{item.description}</div>
-                  </div>
                 </div>
                 <div className={styles.connector} />
               </div>
@@ -98,15 +107,23 @@ export default function Timeline({ experience }: TimelineProps) {
                   style={{ backgroundColor: item.secondaryColor }}
                 >
                   {!(index % 2) && (
-                    <div className={styles.icon_container}>
-                      <Image src={`/${item.icon}`} alt={item.title} fill />
-                    </div>
+                    <>
+                      <div className={styles.icon_container}>
+                        <Link href={item.link}>
+                          <Image src={`/${item.icon}`} alt={item.title} fill />
+                        </Link>
+                      </div>
+                      <Link href={item.link}>
+                        <div className={styles.description}>
+                          <h2 className={styles.title}>{item.year}</h2>
+                          <div className={styles.subtitle}>{item.title}</div>
+                          <div className={styles.paragraph}>
+                            {item.description}
+                          </div>
+                        </div>
+                      </Link>
+                    </>
                   )}
-                  <div className={styles.description}>
-                    <h2 className={styles.title}>{item.year}</h2>
-                    <div className={styles.subtitle}>{item.title}</div>
-                    <div className={styles.paragraph}>{item.description}</div>
-                  </div>
                 </div>
               </div>
             </motion.li>

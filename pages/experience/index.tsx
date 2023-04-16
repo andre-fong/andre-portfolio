@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Head from "next/head";
-import { useBlobSwitch } from "@/components/Background";
+import { useBlobSwitch, useBackgroundColor } from "@/components/Background";
 import { motion } from "framer-motion";
 import styles from "@/styles/Experience.module.scss";
 import Stars from "@/components/Stars";
@@ -13,10 +13,12 @@ export interface Experience {
   description: string;
   color: string;
   secondaryColor: string;
+  link: string;
 }
 
 export default function Experience() {
   useBlobSwitch(false);
+  useBackgroundColor("rgb(30, 30, 30)");
 
   const experience: Experience[] = [
     {
@@ -27,6 +29,7 @@ export default function Experience() {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc sit amet ultricies ultricies, nunc elit ultrices nisl,",
       color: "rgb(70, 132, 255)",
       secondaryColor: "lightblue",
+      link: "/experience/uoft",
     },
     {
       icon: "verto.png",
@@ -35,6 +38,7 @@ export default function Experience() {
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       color: "rgb(157, 92, 255)",
       secondaryColor: "rgb(208, 176, 255)",
+      link: "/experience/verto",
     },
   ];
 
