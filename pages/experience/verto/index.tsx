@@ -102,6 +102,7 @@ export default function Verto() {
                 src="/verto-group-picture.jpg"
                 alt="New hires for Verto, 2023"
                 fill
+                priority
                 style={{ objectFit: "cover", objectPosition: "top" }}
               />
             </div>
