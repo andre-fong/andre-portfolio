@@ -47,6 +47,16 @@ export default function Timeline({ experience }: TimelineProps) {
       />
 
       <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+        exit={{ opacity: 0 }}
+        className={`${styles.bg_title} ${inter.className}`}
+      >
+        MY EXPERIENCE
+      </motion.div>
+
+      <motion.div
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
       >
