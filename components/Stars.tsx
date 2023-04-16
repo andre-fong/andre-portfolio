@@ -50,7 +50,7 @@ export default function Stars({ count }: StarProps) {
       <motion.div
         initial={{ clipPath: "circle(0px at center)" }}
         animate={{ clipPath: "circle(100% at center)" }}
-        transition={{ duration: 1, delay: 0.7, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className={styles.content}
       >
         <motion.div id="stars_container" className={styles.stars_container}>

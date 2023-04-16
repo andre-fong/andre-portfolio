@@ -126,13 +126,13 @@ export default function Home() {
           <div className={`${styles.description} ${ptSansNarrow.className}`}>
             {"I'M A FULL STACK DEVELOPER CURRENTLY WORKING @ "
               .split(" ")
-              .map((letter, index) => (
+              .map((word, index) => (
                 <>
                   <SlideReveal
                     key={index}
                     random
                     classname={`${styles.description_text} ${ptSansNarrow.className}`}
-                    content={letter}
+                    content={word}
                   />{" "}
                 </>
               ))}
@@ -146,13 +146,13 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {"VERTO HEALTH.".split(" ").map((letter, index) => (
+                {"VERTO HEALTH.".split(" ").map((word, index) => (
                   <>
                     <SlideReveal
                       key={index}
                       random
                       classname={`${styles.description_text} ${ptSansNarrow.className}`}
-                      content={letter}
+                      content={word}
                     />{" "}
                   </>
                 ))}

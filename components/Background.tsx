@@ -73,7 +73,7 @@ export function useBlobSwitch(on: boolean) {
 
     if (on) {
       blob.animate(
-        { opacity: 1 },
+        { opacity: 0.8 },
         { duration: 500, fill: "forwards", easing: "ease-in-out", delay: 500 }
       );
     } else {
