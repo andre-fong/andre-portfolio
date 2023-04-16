@@ -26,6 +26,7 @@ export default function Stars({ count }: StarProps) {
       const x = clientX - width / 2;
       const y = clientY - height / 2;
 
+      if (!document.getElementById("stars_container")) return;
       animate("#stars_container", { x: -x / 10, y: -y / 10 }, { duration: 0 });
     },
     [width, height, animate]
