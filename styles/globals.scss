@@ -53,3 +53,12 @@ html, body, #__next {
 	height: 100%;
 	overflow-x: hidden;
 }
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+a:visited {
+	color: inherit;
+	text-decoration: none;
+}
