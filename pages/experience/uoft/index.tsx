@@ -3,6 +3,11 @@ import { motion } from "framer-motion";
 import styles from "@/styles/ExperienceDetails.module.scss";
 import { useBackgroundColor } from "@/components/Background";
 import Head from "next/head";
+import { Inter } from "next/font/google";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import Link from "next/link";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function UofT() {
   useBackgroundColor("rgb(0, 42, 130)");
@@ -73,9 +78,40 @@ export default function UofT() {
         />
       </Head>
 
-      <div className={styles.content}>
-        <div></div>
-      </div>
+      <motion.div
+        exit={{ opacity: 0, x: -50 }}
+        transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
+      >
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, type: "spring" }}
+        >
+          <Link href="/experience">
+            <div className={`${styles.back} ${inter.className}`}>
+              <ArrowBackIosIcon fontSize="large" />
+              <div className={styles.back_text}>Back to Experience</div>
+            </div>
+          </Link>
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        exit={{ opacity: 0, y: 50 }}
+        transition={{ duration: 0.5, type: "spring" }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, type: "spring" }}
+          className={`${styles.container} ${inter.className}`}
+        >
+          <div className={styles.content}>
+            <h1 className={styles.title}>University of Toronto, Scarborough</h1>
+            <div className={styles.subtitle}>Computer Science</div>
+          </div>
+        </motion.div>
+      </motion.div>
     </>
   );
 }
