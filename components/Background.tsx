@@ -23,7 +23,7 @@ export default function Background() {
 
       blob.animate(
         { left: `${clientX}px`, top: `${clientY}px` },
-        { duration: 4000, fill: "forwards", easing: "ease-in-out" }
+        { duration: 8000, fill: "forwards", easing: "ease-out" }
       );
       // blob.style.left = `${width / 2 - x / 6}px`;
       // blob.style.top = `${height / 2 - y / 6}px`;
