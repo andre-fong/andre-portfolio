@@ -255,7 +255,7 @@ export default function Verto() {
             <div className={styles.picture_container}>
               <div className={styles.picture}>
                 <Image
-                  src="/verto-lighthouse.png"
+                  src="/verto-lighthouse-2.png"
                   alt="Google Lighthouse report for Verto Engage"
                   fill
                   style={{
