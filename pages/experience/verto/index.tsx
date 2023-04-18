@@ -162,7 +162,7 @@ export default function Verto() {
               existing test suite, ranging from fixing faulty test logic to
               adding new tests to cover new features. Frequent communication
               with cross-functional teams was key, especially the adjacent
-              product and full stack teams.
+              product and full-stack teams.
             </p>
             <p className={styles.paragraph}>
               I also had the opportunity to work on several innovation projects
@@ -171,17 +171,56 @@ export default function Verto() {
               to Cypress, a currently unsupported feature. This had previously
               been a blocker for QA, as it was a common use case for our clients
               that had remained untested. The new feature has since been rolled
-              out to existing tests - alongside Typescript documentation on how
-              to use it.
+              out to existing tests — along with Typescript intellisense support
+              to boot.
             </p>
 
             <div className={styles.section_heading}>
-              Lighthouse - A New Project
+              Lighthouse - A New Journey
             </div>
-            <p className={styles.paragraph}></p>
+            <p className={styles.paragraph}>
+              While I found success in the QA process, I also recently had the
+              chance to embark on a project outside the scope of QA duties,
+              marking the beginning of{" "}
+              <a
+                href="https://developer.chrome.com/docs/lighthouse/overview/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Lighthouse
+              </a>{" "}
+              testing.
+            </p>
+            <p className={styles.paragraph}>
+              A quick rundown on Lighthouse: Google&apos;s Lighthouse is a tool
+              that scores performance metrics for a website, including{" "}
+              <span className={styles.bold}>load time</span>,{" "}
+              <span className={styles.bold}>accessibility</span>, and{" "}
+              <span className={styles.bold}>best practices</span>. Lighthouse
+              generates performance reports with actionable recommendations for
+              improvement, making it a great tool for developers as well.
+            </p>
+            <p className={styles.paragraph}>
+              As the company behind over{" "}
+              <span className={styles.bold}>8.5M patients served</span> using
+              digital healthcare solutions, Verto was in need of a way to
+              enforce accessibility and performance standards for our
+              patient-facing solutions. This is where automated Lighthouse
+              testing comes in.
+            </p>
+            <p className={styles.paragraph}>
+              Fast forward to April 2023, I successfully integrated scheduled
+              Lighthouse tests into our patient-facing solutions to keep track
+              of accessibility and performance metrics. In addition, I connected
+              these tests to Verto&apos;s own Lighthouse server so that reports
+              can be stored and performance trends can be monitored.
+            </p>
 
             <div className={styles.section_heading}>Development</div>
-            <p className={styles.paragraph}></p>
+            <p className={styles.paragraph}>
+              Over my amazing experience at Verto, I worked with the following
+              frameworks and tools:
+            </p>
           </div>
         </motion.div>
       </motion.div>
