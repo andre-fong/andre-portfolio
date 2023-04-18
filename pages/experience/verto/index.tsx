@@ -221,6 +221,75 @@ export default function Verto() {
               Over my amazing experience at Verto, I worked with the following
               frameworks and tools:
             </p>
+
+            <ul className={styles.tools}>
+              <a
+                href="https://www.cypress.io/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <li className={styles.tool} title="Cypress">
+                  <Image src="/cypress-logo.png" alt="Cypress logo" fill />
+                </li>
+              </a>
+              <a
+                href="https://www.typescriptlang.org/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <li className={styles.tool} title="Typescript">
+                  <Image
+                    src="/typescript-logo.png"
+                    alt="Typescript logo"
+                    fill
+                  />
+                </li>
+              </a>
+              <a
+                href="https://www.atlassian.com/software/jira"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <li className={styles.tool} title="Jira">
+                  <Image
+                    src="/jira-logo.jpg"
+                    alt="Jira logo"
+                    fill
+                    style={{
+                      objectFit: "cover",
+                      borderRadius: "50%",
+                      objectPosition: "right -7px top 0",
+                    }}
+                  />
+                </li>
+              </a>
+              <a
+                href="https://developer.chrome.com/docs/lighthouse/overview/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <li className={styles.tool} title="Lighthouse">
+                  <Image
+                    src="/lighthouse-logo.png"
+                    alt="Lighthouse logo"
+                    fill
+                  />
+                </li>
+              </a>
+              <a
+                href="https://github.com/features/actions"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <li className={styles.tool} title="Github Actions">
+                  <Image
+                    src="/github-actions-logo.png"
+                    alt="Github Actions logo"
+                    fill
+                  />
+                </li>
+              </a>
+            </ul>
           </div>
         </motion.div>
       </motion.div>
