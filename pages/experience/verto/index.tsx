@@ -79,48 +79,112 @@ export default function Verto() {
         />
       </Head>
 
-      <Link href="/experience">
-        <div className={`${styles.back} ${inter.className}`}>
-          <ArrowBackIosIcon fontSize="large" />
-          <div className={styles.back_text}>Back to Experience</div>
-        </div>
-      </Link>
-
-      <div className={`${styles.container} ${inter.className}`}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Verto Health</h1>
-          <div className={styles.subtitle}>Jr. QA Automation Developer</div>
-          <p className={styles.paragraph}>
-            In the winter of 2023, I started my first internship at{" "}
-            <a href="https://verto.health/">Verto Health</a>, a healthcare tech
-            startup based in Toronto.
-          </p>
-
-          <div className={styles.picture_container}>
-            <div className={styles.picture}>
-              <Image
-                src="/verto-group-picture.jpg"
-                alt="New hires for Verto, 2023"
-                fill
-                priority
-                style={{ objectFit: "cover", objectPosition: "top" }}
-              />
+      <motion.div
+        exit={{ opacity: 0, x: -50 }}
+        transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
+      >
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, type: "spring" }}
+        >
+          <Link href="/experience">
+            <div className={`${styles.back} ${inter.className}`}>
+              <ArrowBackIosIcon fontSize="large" />
+              <div className={styles.back_text}>Back to Experience</div>
             </div>
-            <div className={styles.caption}>
-              Group photo of new hires at Verto as of 2023 Jan!
+          </Link>
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        exit={{ opacity: 0, y: 50 }}
+        transition={{ duration: 0.5, type: "spring" }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, type: "spring" }}
+          className={`${styles.container} ${inter.className}`}
+        >
+          <div className={styles.content}>
+            <h1 className={styles.title}>Verto Health</h1>
+            <div className={styles.subtitle}>Jr. QA Automation Developer</div>
+            <p className={styles.paragraph}>
+              In the winter of 2023, I had the great pleasure of starting my
+              first internship at{" "}
+              <a target="_blank" rel="noreferrer" href="https://verto.health/">
+                Verto Health
+              </a>
+              , a healthcare tech startup based in Toronto.
+            </p>
+            <p className={styles.paragraph}>
+              Verto&apos;s main mission was to bring a modern solution to the
+              outdated world of healthcare that still saw the use of paper files
+              and fax machines (sadly). Throughout the past 4 months, I&apos;ve
+              become a key part of the QA team and grown attached to
+              Verto&apos;s culture and its people.
+            </p>
+
+            <div className={styles.picture_container}>
+              <div className={styles.picture}>
+                <Image
+                  src="/verto-group-picture.jpg"
+                  alt="New hires for Verto, 2023"
+                  fill
+                  priority
+                  style={{ objectFit: "cover", objectPosition: "top" }}
+                />
+              </div>
+              <div className={styles.caption}>
+                Group photo of new hires at Verto as of 2023 Jan!
+              </div>
             </div>
+
+            <div className={styles.section_heading}>Responsibilities</div>
+            <p className={styles.paragraph}>
+              Our growing QA team was in charge of a{" "}
+              <span className={styles.bold}>robust automated test suite </span>
+              that ran against all of Verto&apos;s technical solutions. The
+              suite was maintained in Javascript using{" "}
+              <a
+                href="https://www.cypress.io/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Cypress
+              </a>{" "}
+              and mostly consisted of end-to-end tests, simulating how clients
+              would use our software.
+            </p>
+            <p className={styles.paragraph}>
+              Alongside bug reporting, I played a large part in maintaining our
+              existing test suite, ranging from fixing faulty test logic to
+              adding new tests to cover new features. Frequent communication
+              with cross-functional teams was key, especially the adjacent
+              product and full stack teams.
+            </p>
+            <p className={styles.paragraph}>
+              I also had the opportunity to work on several innovation projects
+              - one aimed to add{" "}
+              <span className={styles.bold}>copy-and-paste functionality </span>
+              to Cypress, a currently unsupported feature. This had previously
+              been a blocker for QA, as it was a common use case for our clients
+              that had remained untested. The new feature has since been rolled
+              out to existing tests - alongside Typescript documentation on how
+              to use it.
+            </p>
+
+            <div className={styles.section_heading}>
+              Lighthouse - A New Project
+            </div>
+            <p className={styles.paragraph}></p>
+
+            <div className={styles.section_heading}>Development</div>
+            <p className={styles.paragraph}></p>
           </div>
-
-          <div className={styles.section_heading}>Responsibilties</div>
-          <p className={styles.paragraph}></p>
-
-          <div className={styles.section_heading}>Innovation Projects</div>
-          <p className={styles.paragraph}></p>
-
-          <div className={styles.section_heading}>Development</div>
-          <p className={styles.paragraph}></p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </>
   );
 }

@@ -45,7 +45,7 @@
     transition: color 0.15s;
   }
   a:hover {
-    color: skyblue;
+    color: rgb(49, 197, 255);
   }
 }
 
@@ -79,7 +79,11 @@
 
 .section_heading {
   margin-top: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-size: 2em;
+  font-weight: 700;
+}
+
+.bold {
   font-weight: 700;
 }
