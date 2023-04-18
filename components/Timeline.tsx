@@ -76,9 +76,29 @@ export default function Timeline({ experience }: TimelineProps) {
                 className={styles.half_section}
                 style={{ visibility: index % 2 ? "visible" : "hidden" }}
               >
-                <div
+                <motion.div
                   className={styles.circle}
-                  style={{ backgroundColor: item.secondaryColor }}
+                  style={{
+                    backgroundColor: item.secondaryColor,
+                  }}
+                  initial={{
+                    boxShadow: `${item.secondaryColor} 0px 0px 40px 0px`,
+                  }}
+                  animate={{
+                    boxShadow: [
+                      `${item.secondaryColor} 0px 0px 40px 0px`,
+                      `${item.secondaryColor} 0px 0px 40px 10px`,
+                      `${item.secondaryColor} 0px 0px 40px 0px`,
+                      `${item.secondaryColor} 0px 0px 40px 0px`,
+                      `${item.secondaryColor} 0px 0px 40px 0px`,
+                    ],
+                  }}
+                  transition={{
+                    duration: 5,
+                    delay: 0.2 + index * 0.3,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                  }}
                 >
                   {index % 2 && (
                     <>
@@ -98,7 +118,7 @@ export default function Timeline({ experience }: TimelineProps) {
                       </Link>
                     </>
                   )}
-                </div>
+                </motion.div>
                 <div className={styles.connector} />
               </div>
 
@@ -112,9 +132,27 @@ export default function Timeline({ experience }: TimelineProps) {
                 style={{ visibility: index % 2 ? "hidden" : "visible" }}
               >
                 <div className={styles.connector} />
-                <div
+                <motion.div
                   className={styles.circle}
                   style={{ backgroundColor: item.secondaryColor }}
+                  initial={{
+                    boxShadow: `${item.secondaryColor} 0px 0px 40px 0px`,
+                  }}
+                  animate={{
+                    boxShadow: [
+                      `${item.secondaryColor} 0px 0px 40px 0px`,
+                      `${item.secondaryColor} 0px 0px 40px 10px`,
+                      `${item.secondaryColor} 0px 0px 40px 0px`,
+                      `${item.secondaryColor} 0px 0px 40px 0px`,
+                      `${item.secondaryColor} 0px 0px 40px 0px`,
+                    ],
+                  }}
+                  transition={{
+                    duration: 5,
+                    delay: 0.2 + index * 0.3,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                  }}
                 >
                   {!(index % 2) && (
                     <>
@@ -134,7 +172,7 @@ export default function Timeline({ experience }: TimelineProps) {
                       </Link>
                     </>
                   )}
-                </div>
+                </motion.div>
               </div>
             </motion.li>
           ))}

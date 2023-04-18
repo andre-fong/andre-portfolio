@@ -49,6 +49,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 15;
+  transition: scale 0.15s;
+}
+.circle:hover {
+  scale: 1.03;
 }
 
 .description {
