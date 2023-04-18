@@ -157,6 +157,24 @@ export default function Verto() {
               and mostly consisted of end-to-end tests, simulating how clients
               would use our software.
             </p>
+
+            <div className={styles.picture_container}>
+              <div className={styles.picture}>
+                <Image
+                  src="/cypress-tests.png"
+                  alt="Passing Cypress tests"
+                  fill
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "bottom -7px right 0",
+                  }}
+                />
+              </div>
+              <div className={styles.caption}>
+                Example Cypress test passing as intended
+              </div>
+            </div>
+
             <p className={styles.paragraph}>
               Alongside bug reporting, I played a large part in maintaining our
               existing test suite, ranging from fixing faulty test logic to
@@ -174,6 +192,24 @@ export default function Verto() {
               out to existing tests — along with Typescript intellisense support
               to boot.
             </p>
+
+            <div className={styles.picture_container}>
+              <div className={styles.picture}>
+                <Image
+                  src="/cypress-clipboard.png"
+                  alt="New Cypress clipboard commands being used in a test"
+                  fill
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "bottom -7px right 0",
+                  }}
+                />
+              </div>
+              <div className={styles.caption}>
+                Intellisense support for new custom copy and paste Cypress
+                commands
+              </div>
+            </div>
 
             <div className={styles.section_heading}>
               Lighthouse - A New Journey
@@ -215,6 +251,23 @@ export default function Verto() {
               these tests to Verto&apos;s own Lighthouse server so that reports
               can be stored and performance trends can be monitored.
             </p>
+
+            <div className={styles.picture_container}>
+              <div className={styles.picture}>
+                <Image
+                  src="/verto-lighthouse.png"
+                  alt="Google Lighthouse report for Verto Engage"
+                  fill
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "top",
+                  }}
+                />
+              </div>
+              <div className={styles.caption}>
+                Part of a Lighthouse report for Verto Engage
+              </div>
+            </div>
 
             <div className={styles.section_heading}>Development</div>
             <p className={styles.paragraph}>
