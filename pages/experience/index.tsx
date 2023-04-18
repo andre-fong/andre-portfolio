@@ -26,7 +26,7 @@ export default function Experience() {
       year: 2021,
       title: "UofT Scarborough",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc sit amet ultricies ultricies, nunc elit ultrices nisl,",
+        "The start of my computer science journey, where I learned the fundamentals of programming and software development (and loads of math).",
       color: "rgb(70, 132, 255)",
       secondaryColor: "lightblue",
       link: "/experience/uoft",
@@ -35,7 +35,8 @@ export default function Experience() {
       icon: "verto.png",
       year: 2023,
       title: "Verto Health",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      description:
+        "My first professional developer co-op, working with QA and testing against Verto's healthcare software.",
       color: "rgb(157, 92, 255)",
       secondaryColor: "rgb(208, 176, 255)",
       link: "/experience/verto",
