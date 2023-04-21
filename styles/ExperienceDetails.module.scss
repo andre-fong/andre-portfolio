@@ -6,13 +6,21 @@
   padding-bottom: 70px;
 }
 
+.back_container {
+  width: fit-content;
+  padding-left: 10%;
+}
+
 .back {
   color: white;
-  padding-left: 10%;
   display: flex;
   align-items: center;
   text-decoration: none;
   margin-bottom: 30px;
+}
+
+.back_text {
+  margin-left: -5px;
 }
 
 .content {

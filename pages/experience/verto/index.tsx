@@ -3,10 +3,9 @@ import { motion } from "framer-motion";
 import styles from "@/styles/ExperienceDetails.module.scss";
 import { useBackgroundColor } from "@/components/Background";
 import Head from "next/head";
-import Link from "next/link";
 import { Inter } from "next/font/google";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Image from "next/image";
+import BackToExperience from "@/components/BackToExperience";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -79,23 +78,7 @@ export default function Verto() {
         />
       </Head>
 
-      <motion.div
-        exit={{ opacity: 0, x: -50 }}
-        transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
-      >
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, type: "spring" }}
-        >
-          <Link href="/experience">
-            <div className={`${styles.back} ${inter.className}`}>
-              <ArrowBackIosIcon fontSize="large" />
-              <div className={styles.back_text}>Back to Experience</div>
-            </div>
-          </Link>
-        </motion.div>
-      </motion.div>
+      <BackToExperience />
 
       <motion.div
         exit={{ opacity: 0, y: 50 }}

@@ -4,8 +4,7 @@ import styles from "@/styles/ExperienceDetails.module.scss";
 import { useBackgroundColor } from "@/components/Background";
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import Link from "next/link";
+import BackToExperience from "@/components/BackToExperience";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -78,23 +77,7 @@ export default function UofT() {
         />
       </Head>
 
-      <motion.div
-        exit={{ opacity: 0, x: -50 }}
-        transition={{ duration: 0.5, delay: 0.2, type: "spring" }}
-      >
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, type: "spring" }}
-        >
-          <Link href="/experience">
-            <div className={`${styles.back} ${inter.className}`}>
-              <ArrowBackIosIcon fontSize="large" />
-              <div className={styles.back_text}>Back to Experience</div>
-            </div>
-          </Link>
-        </motion.div>
-      </motion.div>
+      <BackToExperience />
 
       <motion.div
         exit={{ opacity: 0, y: 50 }}
@@ -108,7 +91,7 @@ export default function UofT() {
         >
           <div className={styles.content}>
             <h1 className={styles.title}>University of Toronto, Scarborough</h1>
-            <div className={styles.subtitle}>Computer Science</div>
+            <div className={styles.subtitle}>Honours, Bachelor of Science</div>
           </div>
         </motion.div>
       </motion.div>
