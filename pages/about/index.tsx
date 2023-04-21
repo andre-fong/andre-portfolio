@@ -1,5 +1,12 @@
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
+import { PT_Sans_Narrow } from "next/font/google";
+
+const ptSansNarrow = PT_Sans_Narrow({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export default function About() {
   return (
@@ -62,8 +69,33 @@ export default function About() {
         />
       </Head>
 
-      <div>
-        <div>About</div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          height: "calc(100% - 100px)",
+        }}
+      >
+        <Image
+          src="/under-construction.svg"
+          alt="Page under construction, sorry!"
+          width={280}
+          height={160}
+          style={{ marginTop: -100 }}
+        />
+        <h1
+          style={{
+            color: "white",
+            fontSize: "3em",
+            fontWeight: 700,
+            marginTop: 50,
+          }}
+          className={ptSansNarrow.className}
+        >
+          Page under construction, sorry!
+        </h1>
       </div>
     </>
   );
