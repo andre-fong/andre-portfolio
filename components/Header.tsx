@@ -46,20 +46,81 @@ export default function Header() {
     <div className={`${styles.content} ${ptSansNarrow.className}`}>
       <div className={styles.logo}>
         <motion.div
-          className={styles.picture}
-          initial={{ scale: 1.0 }}
+          className={styles.picture_container}
           whileHover={{
             scale: 1.2,
-            rotateZ: -15,
             transition: {
               type: "spring",
-              duration: 0.25,
+              duration: 0.15,
             },
           }}
-          whileTap={{ scale: 1.1 }}
-          onClick={toggleDropdown}
+          whileTap={{ scale: 1.1, transition: { duration: 0.1 } }}
         >
-          <Image src="/logo.jpg" fill sizes="50px" alt="Andre Fong" priority />
+          <motion.div
+            className={styles.picture}
+            initial={{ scale: 1.0, rotateZ: 0 }}
+            animate={{ rotateZ: [10, -10, 10, -10, 10, 0] }}
+            transition={{
+              duration: 0.5,
+              ease: "easeOut",
+              repeat: Infinity,
+              repeatDelay: 4,
+            }}
+            onClick={toggleDropdown}
+          >
+            <Image
+              src="/logo.jpg"
+              fill
+              sizes="50px"
+              alt="Andre Fong"
+              priority
+            />
+          </motion.div>
+
+          <motion.div
+            className={styles.round_border_1}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.2, 0] }}
+            transition={{
+              duration: 0.5,
+              ease: "linear",
+              repeat: Infinity,
+              repeatDelay: 4,
+            }}
+          />
+          <motion.div
+            className={styles.round_border_2}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.2, 0] }}
+            transition={{
+              duration: 0.5,
+              ease: "linear",
+              repeat: Infinity,
+              repeatDelay: 4,
+            }}
+          />
+          <motion.div
+            className={styles.round_border_3}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.2, 0] }}
+            transition={{
+              duration: 0.5,
+              ease: "linear",
+              repeat: Infinity,
+              repeatDelay: 4,
+            }}
+          />
+          <motion.div
+            className={styles.round_border_4}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0, 0.2, 0] }}
+            transition={{
+              duration: 0.5,
+              ease: "linear",
+              repeat: Infinity,
+              repeatDelay: 4,
+            }}
+          />
         </motion.div>
 
         <AnimatePresence>

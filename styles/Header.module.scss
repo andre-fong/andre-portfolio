@@ -70,6 +70,12 @@
   height: 50px;
   z-index: 20;
 }
+.picture_container {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  z-index: inherit;
+}
 .picture {
   position: relative;
   width: inherit;
@@ -118,4 +124,57 @@
 }
 .action:hover {
   scale: 1.1;
+}
+
+.round_border_1 {
+  position: absolute;
+  z-index: 14;
+  width: 60%;
+  aspect-ratio: 1;
+  top: 20%;
+  left: 35px;
+  transform: rotateZ(90deg);
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: white;
+  pointer-events: none;
+}
+.round_border_2 {
+  position: absolute;
+  z-index: 14;
+  width: 100%;
+  aspect-ratio: 1;
+  top: 0;
+  left: 25px;
+  transform: rotateZ(90deg);
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: white;
+  pointer-events: none;
+}
+.round_border_3 {
+  position: absolute;
+  z-index: 14;
+  width: 60%;
+  aspect-ratio: 1;
+  top: 35px;
+  left: 3px;
+  transform: rotateZ(200deg);
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: white;
+  pointer-events: none;
+}
+.round_border_4 {
+  position: absolute;
+  z-index: 14;
+  width: 100%;
+  aspect-ratio: 1;
+  top: 25px;
+  left: -8px;
+  transform: rotateZ(200deg);
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: white;
+  pointer-events: none;
 }
