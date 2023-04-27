@@ -1,15 +1,80 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-
+import { motion } from "framer-motion";
+import { useBlobSwitch, useBackgroundColor } from "@/components/Background";
 import { PT_Sans_Narrow } from "next/font/google";
+import useScreenSize from "@/utils/useScreenSize";
+import styles from "@/styles/Projects.module.scss";
+import { Tooltip } from "@mui/material";
 
 const ptSansNarrow = PT_Sans_Narrow({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
 
+type TabId =
+  | "wordle"
+  | "unispaces"
+  | "portfolio"
+  | "chefswap"
+  | "instagram"
+  | "terminal";
+
+interface Tab {
+  id: TabId;
+  name: string;
+  icon: string;
+  bg?: string;
+}
+
 export default function Projects() {
+  useBlobSwitch(false);
+  useBackgroundColor("#192B4F");
+
+  const { width } = useScreenSize();
+  const [tabsOpen, setTabsOpen] = useState<TabId[]>([]);
+
+  useEffect(() => {
+    // Set z-index of tabs according to tabs order
+  }, [tabsOpen]);
+
+  function clickTab(tab: TabId) {
+    const localTabs = [...tabsOpen];
+    if (localTabs.includes(tab)) localTabs.splice(localTabs.indexOf(tab), 1);
+    localTabs.push(tab);
+    setTabsOpen(localTabs);
+  }
+
+  const tabs: Tab[] = [
+    {
+      id: "wordle",
+      name: "Wordle Step",
+      icon: "/wordle-step.png",
+    },
+    {
+      id: "unispaces",
+      name: "Unispaces",
+      icon: "/unispaces.png",
+    },
+    {
+      id: "portfolio",
+      name: "Portfolio",
+      icon: "/android-chrome-192x192.png",
+    },
+    {
+      id: "chefswap",
+      name: "Chefswap",
+      icon: "/chefswap.png",
+      bg: "white",
+    },
+    {
+      id: "instagram",
+      name: "Instagram Clone",
+      icon: "/instagram.webp",
+    },
+  ];
+
   return (
     <>
       <Head>
@@ -70,40 +135,79 @@ export default function Projects() {
         />
       </Head>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-          height: "calc(100% - 100px)",
-        }}
-      >
-        <Image
-          src="/under-construction.svg"
-          alt="Page under construction, sorry!"
-          width={280}
-          height={160}
-          style={{ marginTop: -100 }}
-        />
-        <h1
-          style={{
-            color: "white",
-            fontSize: "3em",
-            fontWeight: 700,
-            marginTop: 50,
-          }}
-          className={ptSansNarrow.className}
-        >
-          Page under construction, sorry!
-        </h1>
-        <h2
-          style={{ marginTop: 20, color: "white" }}
-          className={ptSansNarrow.className}
-        >
-          (View my GitHub link for a list of projects)
-        </h2>
-      </div>
+      <motion.div className={styles.dock_container}>
+        <div className={styles.dock}>
+          {tabs.map((tab, i) => (
+            <Tooltip
+              title={<div className={styles.mui_tooltip}>{tab.name}</div>}
+              key={i}
+              arrow
+              placement="top"
+              leaveDelay={100}
+            >
+              <motion.div className={styles.icon_container} key={i}>
+                <button
+                  className={styles.icon}
+                  style={{ backgroundColor: tab.bg || "transparent" }}
+                  onClick={() => clickTab(tab.id)}
+                >
+                  <Image
+                    src={tab.icon}
+                    alt={tab.name}
+                    fill
+                    style={{
+                      objectFit: "cover",
+                      transform: tab.bg ? "scale(0.8)" : "",
+                    }}
+                  />
+                </button>
+                <div
+                  className={styles.icon_open}
+                  style={{
+                    backgroundColor: tabsOpen.includes(tab.id)
+                      ? "white"
+                      : "transparent",
+                  }}
+                />
+              </motion.div>
+            </Tooltip>
+          ))}
+
+          <motion.div className={styles.dock_separator} />
+
+          <Tooltip
+            title={<div className={styles.mui_tooltip}>Terminal</div>}
+            arrow
+            placement="top"
+            leaveDelay={100}
+          >
+            <motion.div className={styles.icon_container}>
+              <button
+                className={styles.icon}
+                onClick={() => clickTab("terminal")}
+              >
+                <Image
+                  src="/terminal.png"
+                  alt="Terminal"
+                  fill
+                  style={{
+                    objectFit: "cover",
+                    transform: "scale(1.25)",
+                  }}
+                />
+              </button>
+              <div
+                className={styles.icon_open}
+                style={{
+                  backgroundColor: tabsOpen.includes("terminal")
+                    ? "white"
+                    : "transparent",
+                }}
+              />
+            </motion.div>
+          </Tooltip>
+        </div>
+      </motion.div>
     </>
   );
 }
