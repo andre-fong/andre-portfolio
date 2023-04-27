@@ -377,16 +377,6 @@ export default function Header() {
                         </motion.div>
                       ))}
                     </motion.div>
-
-                    {/* {"ANDRE FONG".split("").map((letter, index) => (
-                      <motion.div
-                        className={styles.line_letter}
-                        key={index}
-                        variants={letterVariant(100)}
-                      >
-                        {letter === " " ? "\u00A0" : letter}
-                      </motion.div>
-                    ))} */}
                   </motion.div>
                 </Link>
               </motion.div>
