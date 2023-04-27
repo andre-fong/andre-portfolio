@@ -118,7 +118,7 @@ export default function Header() {
   return (
     <>
       <div className={`${styles.content} ${ptSansNarrow.className}`}>
-        <div className={styles.logo}>
+        <div className={styles.logo} aria-label="Logo dropdown button">
           <motion.div
             className={styles.picture_container}
             whileHover={{
@@ -161,6 +161,7 @@ export default function Header() {
                 repeat: Infinity,
                 repeatDelay: 4,
               }}
+              role="presentation"
             />
             <motion.div
               className={styles.round_border_2}
@@ -172,6 +173,7 @@ export default function Header() {
                 repeat: Infinity,
                 repeatDelay: 4,
               }}
+              role="presentation"
             />
             <motion.div
               className={styles.round_border_3}
@@ -183,6 +185,7 @@ export default function Header() {
                 repeat: Infinity,
                 repeatDelay: 4,
               }}
+              role="presentation"
             />
             <motion.div
               className={styles.round_border_4}
@@ -194,6 +197,7 @@ export default function Header() {
                 repeat: Infinity,
                 repeatDelay: 4,
               }}
+              role="presentation"
             />
           </motion.div>
 
@@ -311,6 +315,7 @@ export default function Header() {
           className={styles.hamburger_container}
           onClick={toggleNavMenu}
           ref={scope}
+          aria-label="Navigation menu"
         >
           <div className={styles.line_1} id="line_1" />
           <div className={styles.line_2} id="line_2" />
