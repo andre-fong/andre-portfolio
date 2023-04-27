@@ -1,11 +1,12 @@
 .content {
   display: flex;
-  height: calc(100% - 200px);
+  min-height: calc(100% - 200px);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
   margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .text {
@@ -19,12 +20,12 @@
 .greeting {
   display: flex;
   flex-wrap: wrap;
-  gap: -100px;
   justify-content: center;
   text-align: center;
   font-size: 6em;
   font-weight: 700;
   word-wrap: break-word;
+  padding: 0 25px;
 }
 
 .introduction_text {
@@ -139,4 +140,13 @@
 }
 .verto:hover::after {
   translate: 0 4px;
+}
+
+@media (max-width: 400px) {
+  .greeting {
+    font-size: 5.3em;
+  }
+  .description {
+    font-size: 1.8em;
+  }
 }

@@ -28,3 +28,10 @@
   top: -1.5em;
   text-shadow: rgba(0, 0, 0, 0.75) 0px 5px 15px;
 }
+
+@media (max-width: 400px) {
+  .container {
+    width: 400px;
+    padding-left: 95px;
+  }
+}
