@@ -84,6 +84,37 @@ export default function Header() {
     },
   };
 
+  function line(delay: number) {
+    return {
+      hidden: {},
+      visible: {
+        transition: {
+          delayChildren: 0.2 + delay,
+          staggerChildren: 0.035,
+        },
+      },
+    };
+  }
+
+  function letterVariant(x: number) {
+    return {
+      hidden: {
+        x: x,
+        opacity: 0,
+      },
+      visible: {
+        x: 0,
+        opacity: 1,
+        transition: {
+          duration: 1,
+          type: "spring",
+          bounce: 0.43,
+          opacity: { duration: 0.2 },
+        },
+      },
+    };
+  }
+
   return (
     <>
       <div className={`${styles.content} ${ptSansNarrow.className}`}>
@@ -287,6 +318,7 @@ export default function Header() {
         </button>
       </div>
 
+      {/* Navigation drawer (for mobile view) */}
       <AnimatePresence>
         {navMenuOpen && (
           <motion.div
@@ -296,7 +328,10 @@ export default function Header() {
             exit={{ x: "100%", mode: "wait" }}
             transition={{ duration: 0.5, ease: [0.8, 0, 0.23, 1] }}
           >
-            <div className={`${styles.nav_menu} ${ptSansNarrow.className}`}>
+            <motion.div
+              exit={{ opacity: 0 }}
+              className={`${styles.nav_menu} ${ptSansNarrow.className}`}
+            >
               <motion.div
                 className={styles.link_bg}
                 initial={{ backgroundPosition: "100%" }}
@@ -311,7 +346,48 @@ export default function Header() {
                     setNavMenuOpen(false);
                   }}
                 >
-                  <h1 className={styles.name}>ANDRE FONG</h1>
+                  <motion.div className={styles.name}>
+                    <motion.div
+                      variants={line(0)}
+                      initial="hidden"
+                      animate="visible"
+                    >
+                      {"ANDRE ".split("").map((letter, index) => (
+                        <motion.div
+                          className={styles.line_letter}
+                          key={index}
+                          variants={letterVariant(100)}
+                        >
+                          {letter === " " ? "\u00A0" : letter}
+                        </motion.div>
+                      ))}
+                    </motion.div>
+                    <motion.div
+                      variants={line(0)}
+                      initial="hidden"
+                      animate="visible"
+                    >
+                      {"FONG".split("").map((letter, index) => (
+                        <motion.div
+                          className={styles.line_letter}
+                          key={index}
+                          variants={letterVariant(100)}
+                        >
+                          {letter === " " ? "\u00A0" : letter}
+                        </motion.div>
+                      ))}
+                    </motion.div>
+
+                    {/* {"ANDRE FONG".split("").map((letter, index) => (
+                      <motion.div
+                        className={styles.line_letter}
+                        key={index}
+                        variants={letterVariant(100)}
+                      >
+                        {letter === " " ? "\u00A0" : letter}
+                      </motion.div>
+                    ))} */}
+                  </motion.div>
                 </Link>
               </motion.div>
 
@@ -329,7 +405,22 @@ export default function Header() {
                     setNavMenuOpen(false);
                   }}
                 >
-                  <h2 className={styles.nav_link}>ABOUT</h2>
+                  <motion.div
+                    variants={line(0.1)}
+                    initial="hidden"
+                    animate="visible"
+                    className={styles.nav_link}
+                  >
+                    {"ABOUT".split("").map((letter, index) => (
+                      <motion.div
+                        className={styles.line_letter}
+                        key={index}
+                        variants={letterVariant(130)}
+                      >
+                        {letter === " " ? "\u00A0" : letter}
+                      </motion.div>
+                    ))}
+                  </motion.div>
                 </Link>
               </motion.div>
 
@@ -347,7 +438,22 @@ export default function Header() {
                     setNavMenuOpen(false);
                   }}
                 >
-                  <h2 className={styles.nav_link}>PROJECTS</h2>
+                  <motion.div
+                    variants={line(0.2)}
+                    initial="hidden"
+                    animate="visible"
+                    className={styles.nav_link}
+                  >
+                    {"PROJECTS".split("").map((letter, index) => (
+                      <motion.div
+                        className={styles.line_letter}
+                        key={index}
+                        variants={letterVariant(160)}
+                      >
+                        {letter === " " ? "\u00A0" : letter}
+                      </motion.div>
+                    ))}
+                  </motion.div>
                 </Link>
               </motion.div>
 
@@ -365,10 +471,25 @@ export default function Header() {
                     setNavMenuOpen(false);
                   }}
                 >
-                  <h2 className={styles.nav_link}>EXPERIENCE</h2>
+                  <motion.div
+                    variants={line(0.3)}
+                    initial="hidden"
+                    animate="visible"
+                    className={styles.nav_link}
+                  >
+                    {"EXPERIENCE".split("").map((letter, index) => (
+                      <motion.div
+                        className={styles.line_letter}
+                        key={index}
+                        variants={letterVariant(200)}
+                      >
+                        {letter === " " ? "\u00A0" : letter}
+                      </motion.div>
+                    ))}
+                  </motion.div>
                 </Link>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

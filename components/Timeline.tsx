@@ -32,7 +32,7 @@ export default function Timeline({ experience }: TimelineProps) {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.3, type: "easeOut" },
+      transition: { duration: 0.3, ease: "easeOut" },
     },
   };
 

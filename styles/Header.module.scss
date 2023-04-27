@@ -215,7 +215,7 @@
   bottom: 0;
   z-index: 9;
   // background-color: rgb(249, 247, 235);
-  background: linear-gradient(45deg, gray, black);
+  background: linear-gradient(315deg, gray, black);
 }
 
 .nav_menu {
@@ -230,6 +230,9 @@
   line-height: 1.1;
   margin-bottom: 25px;
   padding: 10px 30px;
+
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .nav_link {
@@ -244,6 +247,10 @@
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 50%, transparent 70%, transparent 100%);
   background-size: 300% 100%;
   background-position: 100%;
+}
+
+.line_letter {
+  display: inline-block;
 }
 
 @media (max-width: 500px) {
