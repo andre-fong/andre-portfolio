@@ -119,7 +119,7 @@ export default function Timeline({ experience }: TimelineProps) {
                     </>
                   )}
                 </motion.div>
-                <div className={styles.connector} />
+                <div className={styles.up_connector} />
               </div>
 
               <div
@@ -131,7 +131,7 @@ export default function Timeline({ experience }: TimelineProps) {
                 className={styles.half_section}
                 style={{ visibility: index % 2 ? "hidden" : "visible" }}
               >
-                <div className={styles.connector} />
+                <div className={styles.down_connector} />
                 <motion.div
                   className={styles.circle}
                   style={{ backgroundColor: item.secondaryColor }}

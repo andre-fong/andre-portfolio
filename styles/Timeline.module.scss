@@ -85,10 +85,11 @@
   line-height: 1.2;
 }
 
-.connector {
+.up_connector, .down_connector {
   background-color: white;
   width: 1px;
   height: 100px;
+  transition: height 0.5s;
 }
 
 .point {
@@ -104,4 +105,25 @@
   position: relative;
   width: 80%;
   aspect-ratio: 1;
+}
+
+// media query for height less than 600px
+
+@media (max-height: 600px) {
+  .down_connector, .up_connector {
+    height: 50px;
+  }
+
+  .title {
+    font-size: 3em;
+  }
+
+  .subtitle {
+    font-size: 1.3em;
+  }
+
+  .paragraph {
+    font-size: 0.8em;
+    margin-top: 5px;
+  }
 }
