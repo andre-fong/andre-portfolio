@@ -110,7 +110,19 @@ export default function Timeline({ experience }: TimelineProps) {
                       <Link href={item.link}>
                         <div className={styles.description}>
                           <div className={styles.title}>{item.year}</div>
-                          <div className={styles.subtitle}>{item.title}</div>
+                          <div
+                            className={styles.subtitle}
+                            aria-label={item.title}
+                          >
+                            {item.title}
+                            <div
+                              className={styles.subtitle_underline}
+                              style={{ backgroundColor: item.color }}
+                              role="presentation"
+                            >
+                              {item.title}
+                            </div>
+                          </div>
                           <div className={styles.paragraph}>
                             {item.description}
                           </div>
@@ -164,7 +176,16 @@ export default function Timeline({ experience }: TimelineProps) {
                       <Link href={item.link}>
                         <div className={styles.description}>
                           <h2 className={styles.title}>{item.year}</h2>
-                          <div className={styles.subtitle}>{item.title}</div>
+                          <div className={styles.subtitle}>
+                            {item.title}
+                            <div
+                              className={styles.subtitle_underline}
+                              style={{ backgroundColor: item.color }}
+                              role="presentation"
+                            >
+                              {item.title}
+                            </div>
+                          </div>
                           <div className={styles.paragraph}>
                             {item.description}
                           </div>

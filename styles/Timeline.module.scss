@@ -54,6 +54,10 @@
 }
 .circle:hover {
   scale: 1.03;
+
+  .subtitle_underline {
+    translate: 0 3px;
+  }
 }
 
 .description {
@@ -75,6 +79,18 @@
   color: white;
   font-weight: 700;
   font-size: 1.5em;
+  position: relative;
+}
+.subtitle_underline {
+  z-index: -1;
+  color: transparent;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: fit-content;
+  height: 5px;
+
+  transition: translate 0.15s;
 }
 
 .paragraph {
