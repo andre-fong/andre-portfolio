@@ -54,7 +54,11 @@ export default function Stars({ count }: StarProps) {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={styles.content}
       >
-        <motion.div id="stars_container" className={styles.stars_container}>
+        <motion.div
+          id="stars_container"
+          className={styles.stars_container}
+          role="presentation"
+        >
           {[...Array(count)].map((_, index) => (
             <div
               key={index}
@@ -66,6 +70,7 @@ export default function Stars({ count }: StarProps) {
                 animationDuration: `${getRandomNumber(4) + 4}s`,
                 width: `${getRandomNumber(22) / 10}px`,
               }}
+              role="presentation"
             />
           ))}
         </motion.div>

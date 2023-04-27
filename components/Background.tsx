@@ -46,6 +46,7 @@ export default function Background() {
       style={{
         backgroundColor: color,
       }}
+      role="presentation"
     >
       <motion.div
         className={styles.blob}
@@ -60,8 +61,9 @@ export default function Background() {
           ease: "easeInOut",
           times: [0, 0.25, 0.5, 0.75, 1],
         }}
+        role="presentation"
       ></motion.div>
-      <div className={styles.blur}></div>
+      <div className={styles.blur} role="presentation"></div>
     </div>
   );
 }
