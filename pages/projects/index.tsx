@@ -143,7 +143,6 @@ export default function Projects() {
               key={i}
               arrow
               placement="top"
-              leaveDelay={100}
             >
               <motion.div className={styles.icon_container} key={i}>
                 <button
@@ -179,7 +178,6 @@ export default function Projects() {
             title={<div className={styles.mui_tooltip}>Terminal</div>}
             arrow
             placement="top"
-            leaveDelay={100}
           >
             <motion.div className={styles.icon_container}>
               <button
