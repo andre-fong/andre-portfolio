@@ -1,0 +1,27 @@
+.terminal_container {
+  height: 100%;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  cursor: text;
+  padding: 5px 7px;
+  font-size: 0.9em;
+  overflow: auto;
+}
+
+.github {
+  text-decoration: underline;
+}
+
+.line {
+  word-break: break-all;
+  line-height: 1.35;
+  white-space: pre-wrap;
+}
+
+.text_cursor {
+  display: inline-flex;
+  width: 7px;
+  height: 1.1em;
+  background-color: rgb(170, 170, 170);
+  margin-bottom: -2px;
+}

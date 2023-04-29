@@ -3,14 +3,15 @@ import Head from "next/head";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useBlobSwitch, useBackgroundColor } from "@/components/Background";
-import { PT_Sans_Narrow } from "next/font/google";
+import { Fira_Code } from "next/font/google";
 import useScreenSize from "@/utils/useScreenSize";
 import styles from "@/styles/Projects.module.scss";
 import { Tooltip } from "@mui/material";
+import Window from "@/components/Window";
+import Terminal from "@/components/Terminal";
 
-const ptSansNarrow = PT_Sans_Narrow({
+const firaCode = Fira_Code({
   subsets: ["latin"],
-  weight: ["400", "700"],
 });
 
 type TabId =
@@ -54,7 +55,7 @@ export default function Projects() {
     },
     {
       id: "unispaces",
-      name: "Unispaces",
+      name: "UniSpaces",
       icon: "/unispaces.png",
     },
     {
@@ -206,6 +207,15 @@ export default function Projects() {
           </Tooltip>
         </div>
       </motion.div>
+
+      <Window order={0} title="Terminal" width={500} height={300}>
+        <Terminal
+          onTop={
+            tabsOpen.findIndex((tabId: string) => tabId === "terminal") ===
+            tabsOpen.length - 1
+          }
+        />
+      </Window>
     </>
   );
 }
