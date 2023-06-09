@@ -8,7 +8,8 @@ const firaCode = Fira_Code({
 });
 
 interface TerminalProps {
-  onTop: boolean;
+  isOnTop: boolean;
+  isClosed: boolean;
 }
 
 interface CommandInfo {
@@ -20,7 +21,7 @@ interface FileInterface {
   [key: string]: string | FileInterface;
 }
 
-export default function Terminal({ onTop }: TerminalProps) {
+export default function Terminal({ isOnTop, isClosed }: TerminalProps) {
   const router = useRouter();
 
   // TERMINAL RENDERING STATE
@@ -271,15 +272,25 @@ export default function Terminal({ onTop }: TerminalProps) {
     }
   }
 
+  // Remove event listener when terminal not on top
   useEffect(() => {
-    if (onTop) {
+    if (isOnTop) {
       window.addEventListener("keydown", handleKeyDown);
     } else {
       window.removeEventListener("keydown", handleKeyDown);
     }
 
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [onTop, handleKeyDown]);
+  }, [isOnTop, handleKeyDown]);
+
+  // Reset terminal history when closed
+  useEffect(() => {
+    if (isClosed) {
+      setInput("");
+      setHistory(['Welcome! Type "help" to get started.']);
+      setCurrentPath("home/projects");
+    }
+  }, [isClosed]);
 
   return (
     <div className={`${styles.terminal_container} ${firaCode.className}`}>

@@ -33,18 +33,80 @@ export default function Projects() {
   useBlobSwitch(false);
   useBackgroundColor("#192B4F");
 
-  const { width } = useScreenSize();
+  // List of tabs that are open, e.g., ["wordle", "unispaces"],
+  // such that the last element is the tab on top
   const [tabsOpen, setTabsOpen] = useState<TabId[]>([]);
+
+  // List of tabs that are minimized (still shows as opened on taskbar)
+  const [tabsMinimized, setTabsMinimized] = useState<TabId[]>([]);
 
   useEffect(() => {
     // Set z-index of tabs according to tabs order
   }, [tabsOpen]);
 
+  /**
+   * Clicks tab, unminimizing if it was minimized, and bringing it to the top of the opened tabs stack
+   * @param tab TabId to click
+   */
   function clickTab(tab: TabId) {
+    // Unminimize tab
+    if (tabsMinimized.includes(tab)) {
+      const localTabs = [...tabsMinimized];
+      localTabs.splice(localTabs.indexOf(tab), 1);
+      setTabsMinimized(localTabs);
+    }
+
+    // Bring to the top of the opened tabs stack
     const localTabs = [...tabsOpen];
     if (localTabs.includes(tab)) localTabs.splice(localTabs.indexOf(tab), 1);
     localTabs.push(tab);
     setTabsOpen(localTabs);
+  }
+
+  /**
+   * Minimizes tab, removing it from the opened tabs stack and adding it to the minimized tabs stack
+   * @param tab TabId to minimize
+   */
+  function minimizeTab(tab: TabId) {
+    // Remove from opened tabs stack
+    const localTabs = [...tabsOpen];
+    if (localTabs.includes(tab)) localTabs.splice(localTabs.indexOf(tab), 1);
+    setTabsOpen(localTabs);
+
+    // Add to minimized tabs stack
+    if (!tabsMinimized.includes(tab))
+      setTabsMinimized((prev) => [...prev, tab]);
+  }
+
+  /**
+   * Closes tab, removing it from both the opened tabs stack and the minimized tabs stack
+   * @param tab TabId to close
+   */
+  function closeTab(tab: TabId) {
+    // Remove from opened tabs stack
+    const localTabs = [...tabsOpen];
+    if (localTabs.includes(tab)) localTabs.splice(localTabs.indexOf(tab), 1);
+    setTabsOpen(localTabs);
+
+    // Remove from minimized tabs stack
+    const localMinimizedTabs = [...tabsMinimized];
+    if (localMinimizedTabs.includes(tab))
+      localMinimizedTabs.splice(localMinimizedTabs.indexOf(tab), 1);
+    setTabsMinimized(localMinimizedTabs);
+  }
+
+  function isTabOnTop(tab: TabId) {
+    return tabsOpen[tabsOpen.length - 1] === tab;
+  }
+
+  function isTabOpenOrMinimized(tab: TabId) {
+    return tabsOpen.includes(tab) || tabsMinimized.includes(tab);
+  }
+
+  function getTabOrder(tab: TabId) {
+    return tabsOpen.includes(tab)
+      ? tabs.length - (tabsOpen.length - 1 - tabsOpen.indexOf(tab))
+      : -1;
   }
 
   const tabs: Tab[] = [
@@ -164,7 +226,7 @@ export default function Projects() {
                 <div
                   className={styles.icon_open}
                   style={{
-                    backgroundColor: tabsOpen.includes(tab.id)
+                    backgroundColor: isTabOpenOrMinimized(tab.id)
                       ? "white"
                       : "transparent",
                   }}
@@ -198,7 +260,7 @@ export default function Projects() {
               <div
                 className={styles.icon_open}
                 style={{
-                  backgroundColor: tabsOpen.includes("terminal")
+                  backgroundColor: isTabOpenOrMinimized("terminal")
                     ? "white"
                     : "transparent",
                 }}
@@ -208,12 +270,18 @@ export default function Projects() {
         </div>
       </motion.div>
 
-      <Window order={0} title="Terminal" width={500} height={300}>
+      {/* Static order for now */}
+      <Window
+        order={getTabOrder("terminal")}
+        title="Terminal"
+        width={500}
+        height={300}
+        minimize={() => minimizeTab("terminal")}
+        close={() => closeTab("terminal")}
+      >
         <Terminal
-          onTop={
-            tabsOpen.findIndex((tabId: string) => tabId === "terminal") ===
-            tabsOpen.length - 1
-          }
+          isOnTop={isTabOnTop("terminal")}
+          isClosed={!isTabOpenOrMinimized("terminal")}
         />
       </Window>
     </>
