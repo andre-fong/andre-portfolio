@@ -12,13 +12,16 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  max-width: 90%;
   height: 100%;
   max-width: 80%;
   padding: 10px 15px;
   background-color: rgba(110, 110, 110, 0.5);
   border-radius: 20px;
   overflow: hidden;
+  overflow-x: auto;
+}
+.dock::-webkit-scrollbar {
+  display: none;
 }
 
 .icon_container {
@@ -57,6 +60,7 @@
   margin: 0 8px;
   margin-bottom: 5px;
   width: 1px;
+  min-width: 1px;
   background-color: rgba(255, 255, 255, 0.4);
 }
 

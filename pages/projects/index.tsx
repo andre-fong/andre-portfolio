@@ -270,7 +270,6 @@ export default function Projects() {
         </div>
       </motion.div>
 
-      {/* Static order for now */}
       <Window
         order={getTabOrder("terminal")}
         title="Terminal"
