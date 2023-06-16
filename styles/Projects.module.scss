@@ -67,3 +67,47 @@
 .mui_tooltip {
   margin: 3px 5px;
 }
+
+.typewriter_container {
+  width: 100%;
+  height: calc(100% - 100px);
+  margin-top: -50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
+}
+
+.typewriter_row {
+  display: flex;
+  // width: fit-content;
+  gap: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  visibility: visible;
+}
+
+.typewriter {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  color: #6bff51;
+  text-align: center;
+  font-size: 9vw;
+  visibility: hidden;
+}
+.typewriter_visible {
+  color: #6bff51;
+  text-align: center;
+  font-size: 9vw;
+}
+
+.cursor {
+  width: calc(9vw / 2);
+  height: 9vw;
+  background-color: #6bff51;
+}

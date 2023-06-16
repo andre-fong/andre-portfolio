@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useBlobSwitch, useBackgroundColor } from "@/components/Background";
 import { Fira_Code } from "next/font/google";
 import useScreenSize from "@/utils/useScreenSize";
@@ -31,7 +31,25 @@ interface Tab {
 
 export default function Projects() {
   useBlobSwitch(false);
-  useBackgroundColor("#192B4F");
+
+  // Entrance animation
+  const [animating, setAnimating] = useState<boolean>(true);
+  useBackgroundColor(animating ? "#111111" : "#192B4F");
+
+  // Entrance animation typewriter text
+  const [typewriterText, setTypewriterText] = useState<string>("");
+  useEffect(() => {
+    const text = "cd projects";
+    if (typewriterText === text) {
+      setTimeout(() => {
+        setAnimating(false);
+      }, 700);
+    } else {
+      setTimeout(() => {
+        setTypewriterText(text.slice(0, typewriterText.length + 1));
+      }, 90);
+    }
+  }, [typewriterText]);
 
   // List of tabs that are open, e.g., ["wordle", "unispaces"],
   // such that the last element is the tab on top
@@ -39,10 +57,6 @@ export default function Projects() {
 
   // List of tabs that are minimized (still shows as opened on taskbar)
   const [tabsMinimized, setTabsMinimized] = useState<TabId[]>([]);
-
-  useEffect(() => {
-    // Set z-index of tabs according to tabs order
-  }, [tabsOpen]);
 
   /**
    * Clicks tab, unminimizing if it was minimized, and bringing it to the top of the opened tabs stack
@@ -198,77 +212,120 @@ export default function Projects() {
         />
       </Head>
 
-      <motion.div className={styles.dock_container}>
-        <div className={styles.dock}>
-          {tabs.map((tab, i) => (
-            <Tooltip
-              title={<div className={styles.mui_tooltip}>{tab.name}</div>}
-              key={i}
-              arrow
-              placement="top"
+      <AnimatePresence mode="wait">
+        {animating ? (
+          <motion.div
+            className={styles.typewriter_container}
+            key="typewriter"
+            exit={{ opacity: 0, y: -200 }}
+            transition={{ ease: [0.72, -0.44, 0.87, 1.43], duration: 0.4 }}
+          >
+            <motion.div
+              className={`${styles.typewriter} ${firaCode.className}`}
+              aria-hidden="true"
+              role="presentation"
             >
-              <motion.div className={styles.icon_container} key={i}>
-                <button
-                  className={styles.icon}
-                  style={{ backgroundColor: tab.bg || "transparent" }}
-                  onClick={() => clickTab(tab.id)}
+              cd projects
+              <motion.span
+                aria-hidden="true"
+                role="presentation"
+                className={styles.cursor}
+              />
+              <motion.div aria-hidden="false" className={styles.typewriter_row}>
+                <motion.div className={styles.typewriter_visible}>
+                  {typewriterText}
+                </motion.div>
+                <motion.span className={styles.cursor} />
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        ) : (
+          <motion.div
+            className={styles.dock_container}
+            initial={{ y: 200 }}
+            animate={{ y: 0 }}
+            transition={{
+              duration: 0.7,
+              type: "spring",
+              damping: 10,
+              delay: 0.15,
+            }}
+            key="dock"
+          >
+            <div className={styles.dock}>
+              {tabs.map((tab, i) => (
+                <Tooltip
+                  title={<div className={styles.mui_tooltip}>{tab.name}</div>}
+                  key={i}
+                  arrow
+                  placement="top"
                 >
-                  <Image
-                    src={tab.icon}
-                    alt={tab.name}
-                    fill
+                  <motion.div className={styles.icon_container} key={i}>
+                    <button
+                      className={styles.icon}
+                      style={{ backgroundColor: tab.bg || "transparent" }}
+                      onClick={() => clickTab(tab.id)}
+                    >
+                      <Image
+                        src={tab.icon}
+                        alt={tab.name}
+                        fill
+                        priority
+                        style={{
+                          objectFit: "cover",
+                          transform: tab.bg ? "scale(0.8)" : "",
+                        }}
+                      />
+                    </button>
+                    <div
+                      className={styles.icon_open}
+                      style={{
+                        backgroundColor: isTabOpenOrMinimized(tab.id)
+                          ? "white"
+                          : "transparent",
+                      }}
+                    />
+                  </motion.div>
+                </Tooltip>
+              ))}
+
+              <motion.div className={styles.dock_separator} />
+
+              <Tooltip
+                title={<div className={styles.mui_tooltip}>Terminal</div>}
+                arrow
+                placement="top"
+              >
+                <motion.div className={styles.icon_container}>
+                  <button
+                    className={styles.icon}
+                    onClick={() => clickTab("terminal")}
+                  >
+                    <Image
+                      src="/terminal.png"
+                      alt="Terminal"
+                      fill
+                      priority
+                      style={{
+                        objectFit: "cover",
+                        transform: "scale(1.25)",
+                      }}
+                    />
+                  </button>
+                  <div
+                    className={styles.icon_open}
                     style={{
-                      objectFit: "cover",
-                      transform: tab.bg ? "scale(0.8)" : "",
+                      backgroundColor: isTabOpenOrMinimized("terminal")
+                        ? "white"
+                        : "transparent",
                     }}
                   />
-                </button>
-                <div
-                  className={styles.icon_open}
-                  style={{
-                    backgroundColor: isTabOpenOrMinimized(tab.id)
-                      ? "white"
-                      : "transparent",
-                  }}
-                />
-              </motion.div>
-            </Tooltip>
-          ))}
-
-          <motion.div className={styles.dock_separator} />
-
-          <Tooltip
-            title={<div className={styles.mui_tooltip}>Terminal</div>}
-            arrow
-            placement="top"
-          >
-            <motion.div className={styles.icon_container}>
-              <button
-                className={styles.icon}
-                onClick={() => clickTab("terminal")}
-              >
-                <Image
-                  src="/terminal.png"
-                  alt="Terminal"
-                  fill
-                  style={{
-                    objectFit: "cover",
-                    transform: "scale(1.25)",
-                  }}
-                />
-              </button>
-              <div
-                className={styles.icon_open}
-                style={{
-                  backgroundColor: isTabOpenOrMinimized("terminal")
-                    ? "white"
-                    : "transparent",
-                }}
-              />
-            </motion.div>
-          </Tooltip>
-        </div>
-      </motion.div>
+                </motion.div>
+              </Tooltip>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Window
         order={getTabOrder("terminal")}
