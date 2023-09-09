@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import styles from "@/styles/Window.module.scss";
 import { Inter } from "next/font/google";
+import useScreenSize from "@/utils/useScreenSize";
 
 interface WindowProps {
   title: string;
@@ -13,7 +14,6 @@ interface WindowProps {
   children: React.ReactNode;
   width: number;
   height: number;
-  // isMinimized: boolean;
   minimize: () => void;
   close: () => void;
 }
@@ -26,19 +26,32 @@ export default function Window({
   children,
   width,
   height,
-  // isMinimized,
   minimize,
   close,
 }: WindowProps) {
+  const { height: browserHeight } = useScreenSize();
   const [hoveringActions, setHoveringActions] = useState<boolean>(false);
+
+  const isOpen = order !== -1;
+
+  const variants = {
+    open: { y: 0, scale: 1, transition: { duration: 0.3, ease: "easeIn" } },
+    closed: {
+      y: browserHeight || 800,
+      scale: 0.2,
+      transition: { duration: 0.3, ease: "easeIn" },
+    },
+  };
 
   return (
     <div className={styles.window_area}>
       <motion.div
         className={styles.window_container}
+        initial="closed"
+        animate={isOpen ? "open" : "closed"}
+        variants={variants}
         style={{
           zIndex: 5 + order,
-          visibility: order < 0 ? "hidden" : "visible",
           width: width,
           height: height,
         }}

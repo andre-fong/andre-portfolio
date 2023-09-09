@@ -117,6 +117,11 @@ export default function Projects() {
     return tabsOpen.includes(tab) || tabsMinimized.includes(tab);
   }
 
+  /**
+   * Get tab order given TabId `(-1 <= order <= tabs.length, order ≠ 0)`
+   * @param tab TabId to get order of
+   * @returns `-1` if tab is not open, otherwise the order of the tab where the window with the greatest order is on top
+   */
   function getTabOrder(tab: TabId) {
     return tabsOpen.includes(tab)
       ? tabs.length - (tabsOpen.length - 1 - tabsOpen.indexOf(tab))
