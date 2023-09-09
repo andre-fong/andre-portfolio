@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useAnimate } from "framer-motion";
 import { useBlobSwitch, useBackgroundColor } from "@/components/Background";
 import { Fira_Code } from "next/font/google";
 import useScreenSize from "@/utils/useScreenSize";
@@ -32,6 +32,8 @@ interface Tab {
 export default function Projects() {
   useBlobSwitch(false);
 
+  const [scope, animate] = useAnimate();
+
   // Entrance animation
   const [animating, setAnimating] = useState<boolean>(true);
   useBackgroundColor(animating ? "#111111" : "#192B4F");
@@ -42,14 +44,21 @@ export default function Projects() {
     const text = "cd projects";
     if (typewriterText === text) {
       setTimeout(() => {
+        animate(
+          `.${styles.typewriter_visible}`,
+          { filter: ["brightness(2.3)", "brightness(1)"] },
+          { duration: 0.7, ease: "easeIn" }
+        );
+      }, 150);
+      setTimeout(() => {
         setAnimating(false);
-      }, 700);
+      }, 400);
     } else {
       setTimeout(() => {
         setTypewriterText(text.slice(0, typewriterText.length + 1));
-      }, 90);
+      }, 60);
     }
-  }, [typewriterText]);
+  }, [typewriterText, animate]);
 
   // List of tabs that are open, e.g., ["wordle", "unispaces"],
   // such that the last element is the tab on top
@@ -224,6 +233,7 @@ export default function Projects() {
             key="typewriter"
             exit={{ opacity: 0, y: -200 }}
             transition={{ ease: [0.72, -0.44, 0.87, 1.43], duration: 0.4 }}
+            ref={scope}
           >
             <motion.div
               className={`${styles.typewriter} ${firaCode.className}`}
