@@ -142,11 +142,11 @@ export default function Home() {
               className={styles.verto}
             >
               <a
-                href="https://verto.health/"
+                href="https://www.symcor.ca/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {"VERTO HEALTH.".split(" ").map((word, index) => (
+                {"SYMCOR.".split(" ").map((word, index) => (
                   <>
                     <SlideReveal
                       key={index}
