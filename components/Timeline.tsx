@@ -70,6 +70,17 @@ export default function Timeline({ experience }: TimelineProps) {
             <motion.li
               variants={point}
               key={index}
+              style={{
+                marginLeft:
+                  index === 0
+                    ? "0"
+                    : `${
+                        (experience[index].year -
+                          experience[index - 1].year -
+                          1) *
+                        50
+                      }px`,
+              }}
               className={`${styles.timeline_point} ${inter.className}`}
             >
               <div
@@ -123,7 +134,13 @@ export default function Timeline({ experience }: TimelineProps) {
                               {item.title}
                             </div>
                           </div>
-                          <div className={styles.paragraph}>
+                          <div
+                            className={styles.paragraph}
+                            style={{
+                              marginRight:
+                                index === experience.length - 1 ? "50px" : 0,
+                            }}
+                          >
                             {item.description}
                           </div>
                         </div>
@@ -186,7 +203,13 @@ export default function Timeline({ experience }: TimelineProps) {
                               {item.title}
                             </div>
                           </div>
-                          <div className={styles.paragraph}>
+                          <div
+                            className={styles.paragraph}
+                            style={{
+                              marginRight:
+                                index === experience.length - 1 ? "50px" : 0,
+                            }}
+                          >
                             {item.description}
                           </div>
                         </div>

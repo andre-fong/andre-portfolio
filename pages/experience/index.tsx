@@ -32,7 +32,7 @@ export default function Experience() {
       link: "/experience/uoft",
     },
     {
-      icon: "verto.png",
+      icon: "verto-icon-color.svg",
       year: 2023,
       title: "Verto Health",
       description:
@@ -40,6 +40,16 @@ export default function Experience() {
       color: "rgb(157, 92, 255)",
       secondaryColor: "rgb(208, 176, 255)",
       link: "/experience/verto",
+    },
+    {
+      icon: "symcor-icon-color.png",
+      year: 2024,
+      title: "Symcor",
+      description:
+        "My second professional developer co-op, working with the development team on Symcor's financial software.",
+      color: "#19A519",
+      secondaryColor: "#C7F6C7",
+      link: "/experience/symcor",
     },
   ];
 
