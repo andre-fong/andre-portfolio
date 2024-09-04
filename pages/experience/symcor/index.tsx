@@ -95,12 +95,13 @@ export default function Symcor() {
             <h1 className={styles.title}>Symcor</h1>
             <div className={styles.subtitle}>Software Developer</div>
             <p className={styles.paragraph}>
-              In the winter of 2023, I had the great pleasure of starting my
-              first internship at{" "}
+              In the summer of 2024, I had the honor of working alongside some
+              of the most talented and warmest people at{" "}
               <a target="_blank" rel="noreferrer" href="https://verto.health/">
-                Verto Health
+                Symcor
               </a>
-              , a healthcare tech startup based in Toronto.
+              , a data processing company working with some of the largest banks
+              in Canada.
             </p>
             <p className={styles.paragraph}>
               Verto&apos;s main mission was to bring a modern solution to the

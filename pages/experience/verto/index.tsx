@@ -104,7 +104,7 @@ export default function Verto() {
             <p className={styles.paragraph}>
               Verto&apos;s main mission was to bring a modern solution to the
               outdated world of healthcare that still saw the use of paper files
-              and fax machines (sadly). Throughout the past 4 months, I&apos;ve
+              and fax machines (sadly). Throughout the past 8 months, I&apos;ve
               become a key part of the QA team and grown attached to
               Verto&apos;s culture and its people.
             </p>
