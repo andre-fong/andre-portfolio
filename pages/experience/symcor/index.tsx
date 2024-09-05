@@ -10,7 +10,6 @@ import BackToExperience from "@/components/BackToExperience";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Symcor() {
-  // TODO: new bg, head description (verto -> symcor), content, etc.
   useBackgroundColor("#1d7235");
 
   return (
@@ -95,13 +94,13 @@ export default function Symcor() {
             <h1 className={styles.title}>Symcor</h1>
             <div className={styles.subtitle}>Software Developer</div>
             <p className={styles.paragraph}>
-              In the summer of 2024, I had the honor of working alongside some
-              of the most talented and warmest people at{" "}
-              <a target="_blank" rel="noreferrer" href="https://verto.health/">
+              In the summer of 2024, I had the honor of working alongside many
+              talented and welcoming people at{" "}
+              <a target="_blank" rel="noreferrer" href="https://www.symcor.ca/">
                 Symcor
               </a>
-              , a data processing company working with some of the largest banks
-              in Canada.
+              , a prominent data processing company working with some of the
+              largest banks in Canada.
             </p>
             <p className={styles.paragraph}>
               Verto&apos;s main mission was to bring a modern solution to the
@@ -114,150 +113,134 @@ export default function Symcor() {
             <div className={styles.picture_container}>
               <div className={styles.picture}>
                 <Image
-                  src="/verto-group-picture.jpg"
-                  alt="New hires for Verto, 2023"
+                  src="/symcor-group-picture.jpg"
+                  alt="The legendary yearly Symcor camping trip, colorized"
                   fill
                   priority
-                  style={{ objectFit: "cover", objectPosition: "top" }}
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "bottom right",
+                  }}
                 />
               </div>
               <div className={styles.caption}>
-                Group photo of new hires at Verto as of 2023 Jan!
+                The yearly Symcor camping trip, accompanied by some of the
+                development team (Orangeville, Ontario)
               </div>
             </div>
 
             <div className={styles.section_heading}>Responsibilities</div>
             <p className={styles.paragraph}>
-              Our growing QA team was in charge of a{" "}
-              <span className={styles.bold}>robust automated test suite </span>
-              that ran against all of Verto&apos;s technical solutions. The
-              suite was maintained in Javascript using{" "}
+              As a software developer in PPS, I spearheaded the development and
+              maintenance of an{" "}
+              <span className={styles.bold}>internal archive tool </span>
+              that stored cheque and financial report data for our client banks.
+              This web app saw a plethora of changes since its inception, so{" "}
+              <span className={styles.bold}>regression testing </span>
+              was also frequently performed before changes were shipped to QA.
+            </p>
+            <p className={styles.paragraph}>
+              I was also responsible for other smaller, investigative tasks such
+              as <span className={styles.bold}>GitLab migrations </span>
+              for old projects,{" "}
+              <span className={styles.bold}>pipeline setup/testing</span>, and{" "}
+              <span className={styles.bold}>Proof-of-Concepts (POCs)</span> for
+              new ideas we wanted to bring into reality.
+            </p>
+
+            <div className={styles.section_heading}>FOA Portal</div>
+            <p className={styles.paragraph}>
+              One of the main projects I worked on is called{" "}
+              <span className={styles.bold}>
+                Federated Object Archive (FOA) Portal
+              </span>{" "}
+              — a web portal that stores over{" "}
+              <span className={styles.bold}>
+                7 years of cheque and financial report data
+              </span>{" "}
+              for our major clients. Internal Symcor employees would use FOA
+              Portal to retrieve groups of financial data at a time whenever
+              requested by clients. As a part of efforts to modernize Symcor
+              tools, Portal brought{" "}
+              <span className={styles.bold}>significant improvements</span> over
+              our previous solutions in archive data retrieval — both in UI and
+              in ease of use.
+            </p>
+
+            <div className={styles.picture_container}>
+              <div className={styles.picture} style={{ aspectRatio: "16/12" }}>
+                <Image
+                  src="/symcor-foaportal.png"
+                  alt="A report opened on FOA Portal amidst other report search results"
+                  fill
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "left",
+                  }}
+                />
+              </div>
+              <div className={styles.caption}>
+                Mock report data from FOA Portal — an internal cheque and report
+                archive tool
+              </div>
+            </div>
+
+            <p className={styles.paragraph}>
+              On the technical side, FOA Portal is a{" "}
               <a
-                href="https://www.cypress.io/"
                 target="_blank"
                 rel="noreferrer"
+                href="https://tomcat.apache.org/"
               >
-                Cypress
+                Tomcat
               </a>{" "}
-              and mostly consisted of end-to-end tests, simulating how clients
-              would use our software.
-            </p>
-
-            <div className={styles.picture_container}>
-              <div className={styles.picture}>
-                <Image
-                  src="/cypress-tests.png"
-                  alt="Passing Cypress tests"
-                  fill
-                  style={{
-                    objectFit: "cover",
-                    objectPosition: "bottom -7px right 0",
-                  }}
-                />
-              </div>
-              <div className={styles.caption}>
-                Example Cypress test passing as intended
-              </div>
-            </div>
-
-            <p className={styles.paragraph}>
-              Alongside bug reporting, I played a large part in maintaining our
-              existing test suite, ranging from fixing faulty test logic to
-              adding new tests to cover new features. Frequent communication
-              with cross-functional teams was key, especially the adjacent
-              product and full-stack teams.
-            </p>
-            <p className={styles.paragraph}>
-              I also had the opportunity to work on several innovation projects
-              - one aimed to add{" "}
-              <span className={styles.bold}>copy-and-paste functionality </span>
-              to Cypress, a currently unsupported feature. This had previously
-              been a blocker for QA, as it was a common use case for our clients
-              that had remained untested. The new feature has since been rolled
-              out to existing tests — along with Typescript intellisense support
-              to boot.
-            </p>
-
-            <div className={styles.picture_container}>
-              <div className={styles.picture}>
-                <Image
-                  src="/cypress-clipboard.png"
-                  alt="New Cypress clipboard commands being used in a test"
-                  fill
-                  style={{
-                    objectFit: "cover",
-                    objectPosition: "bottom -7px right 0",
-                  }}
-                />
-              </div>
-              <div className={styles.caption}>
-                Intellisense support for new custom copy and paste Cypress
-                commands
-              </div>
-            </div>
-
-            <div className={styles.section_heading}>
-              Lighthouse - A New Journey
-            </div>
-            <p className={styles.paragraph}>
-              While I found success in the QA process, I also recently had the
-              chance to embark on a project outside the scope of QA duties,
-              marking the beginning of{" "}
+              project with a frontend built on{" "}
               <a
-                href="https://developer.chrome.com/docs/lighthouse/overview/"
                 target="_blank"
                 rel="noreferrer"
+                href="https://backbonejs.org/"
               >
-                Lighthouse
+                Backbone.js
               </a>{" "}
-              testing.
+              and a backend built on{" "}
+              <a target="_blank" rel="noreferrer" href="https://spring.io/">
+                Java Spring
+              </a>
+              . The Spring backend acts as a wrapper around the FOA core API,
+              which is where the meat and potatoes of FOA lives. I&apos;ve
+              worked on both ends of Portal thus far and have been a key
+              contributor to its successful adoption.
             </p>
             <p className={styles.paragraph}>
-              A quick rundown on Lighthouse: Google&apos;s Lighthouse is a tool
-              that scores performance metrics for a website, including{" "}
-              <span className={styles.bold}>load time</span>,{" "}
-              <span className={styles.bold}>accessibility</span>, and{" "}
-              <span className={styles.bold}>best practices</span>. Lighthouse
-              generates performance reports with actionable recommendations for
-              improvement, making it a great tool for developers as well.
-            </p>
-            <p className={styles.paragraph}>
-              As the company behind over{" "}
-              <span className={styles.bold}>8.5M patients served</span> using
-              digital healthcare solutions, Verto was in need of a way to
-              enforce accessibility and performance standards for our
-              patient-facing solutions. This is where automated Lighthouse
-              testing comes in.
-            </p>
-            <p className={styles.paragraph}>
-              Fast forward to April 2023, I successfully integrated scheduled
-              Lighthouse tests into our patient-facing solutions to keep track
-              of accessibility and performance metrics. In addition, I connected
-              these tests to Verto&apos;s own Lighthouse server so that reports
-              can be stored and performance trends can be monitored.
+              A notable feature recently added to Portal is the ability to
+              search for report data using custom fields tailored to the
+              specific report being queried. This allowed users to narrow down
+              search results BEFORE receiving their data instead of after,
+              significantly improving query times. Moreover, data validation was
+              added for each custom field, giving users clarity and an immediate
+              response from any unintended form error.
             </p>
 
             <div className={styles.picture_container}>
               <div className={styles.picture}>
                 <Image
-                  src="/verto-lighthouse-2.png"
-                  alt="Google Lighthouse report for Verto Engage"
+                  src="/symcor-foaportal-fields.png"
+                  alt="A list of custom search fields for FOA Portal's report search"
                   fill
                   style={{
                     objectFit: "cover",
-                    objectPosition: "top",
                   }}
                 />
               </div>
               <div className={styles.caption}>
-                Part of a Lighthouse report for Verto Engage
+                Example custom input fields for Symcor reports
               </div>
             </div>
 
             <div className={styles.section_heading}>Development</div>
             <p className={styles.paragraph}>
-              Over my amazing experience at Verto, I worked with the following
-              frameworks and tools:
+              During my phenomenal experience at Symcor, I worked with the
+              following frameworks and tools:
             </p>
 
             <ul className={styles.tools}>

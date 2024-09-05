@@ -317,10 +317,10 @@ export default function Verto() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <li className={styles.tool} title="Github Actions">
+                <li className={styles.tool} title="GitHub Actions">
                   <Image
                     src="/github-actions-logo.png"
-                    alt="Github Actions logo"
+                    alt="GitHub Actions logo"
                     fill
                   />
                 </li>
