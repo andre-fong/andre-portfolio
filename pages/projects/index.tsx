@@ -197,11 +197,11 @@ export default function Projects() {
         <meta name="title" content="Andre Fong | Projects" />
         <meta
           name="description"
-          content="Andre Fong is a full stack engineer developing with React's Next.js and working at Verto Health; specializing in automated testing with Cypress."
+          content="Full-stack developer creating innovative and eye-catching web applications. Currently working at Symcor and studying at UofT Scarborough."
         />
         <meta
           name="keywords"
-          content="andre fong, andre fong computer science, andre fong UofT, andre fong UTSC, andre fong website, andre fong portfolio"
+          content="andre fong, andre fong computer science, andre fong UofT, andre fong UTSC, andre fong website, andre fong portfolio, andre fong cs, andre fong verto, andre fong symcor, andre verto, andre symcor, andre cs, andre uoft, andre utsc"
         />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
@@ -213,7 +213,7 @@ export default function Projects() {
         <meta property="og:title" content="Andre Fong | Projects" />
         <meta
           property="og:description"
-          content="Andre Fong is a full stack engineer developing with React's Next.js and working at Verto Health; specializing in automated testing with Cypress."
+          content="Full-stack developer creating innovative and eye-catching web applications. Currently working at Symcor and studying at UofT Scarborough."
         />
 
         {/* Twitter */}
@@ -222,7 +222,7 @@ export default function Projects() {
         <meta property="twitter:title" content="Andre Fong | Projects" />
         <meta
           property="twitter:description"
-          content="Andre Fong is a full stack engineer developing with React's Next.js and working at Verto Health; specializing in automated testing with Cypress."
+          content="Full-stack developer creating innovative and eye-catching web applications. Currently working at Symcor and studying at UofT Scarborough."
         />
       </Head>
 
