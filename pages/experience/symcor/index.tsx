@@ -103,11 +103,15 @@ export default function Symcor() {
               largest banks in Canada.
             </p>
             <p className={styles.paragraph}>
-              Verto&apos;s main mission was to bring a modern solution to the
-              outdated world of healthcare that still saw the use of paper files
-              and fax machines (sadly). Throughout the past 4 months, I&apos;ve
-              become a key part of the QA team and grown attached to
-              Verto&apos;s culture and its people.
+              Symcor is a very diverse and multifaceted company with one shared
+              goal: to fuel business transformation through data. In the
+              financial industry, it aims to process banking data, securely
+              store/deliver data, and detect fraud. Having worked in the{" "}
+              <span className={styles.bold}>
+                Payment Processing Services (PPS)
+              </span>{" "}
+              team for the last 4 months, I&apos;ve been greatly enjoying both
+              Symcor&apos;s work ethic and dynamic people-first culture.
             </p>
 
             <div className={styles.picture_container}>
@@ -245,69 +249,64 @@ export default function Symcor() {
 
             <ul className={styles.tools}>
               <a
-                href="https://www.cypress.io/"
+                href="https://backbonejs.org/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <li className={styles.tool} title="Cypress">
-                  <Image src="/cypress-logo.png" alt="Cypress logo" fill />
+                <li className={styles.tool} title="Backbone.js">
+                  <Image src="/backbone-logo.png" alt="Backbone.js logo" fill />
+                </li>
+              </a>
+              <a href="https://spring.io/" target="_blank" rel="noreferrer">
+                <li className={styles.tool} title="Java Spring">
+                  <Image src="/spring-logo.svg" alt="Java Spring logo" fill />
                 </li>
               </a>
               <a
-                href="https://www.typescriptlang.org/"
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
                 target="_blank"
                 rel="noreferrer"
               >
-                <li className={styles.tool} title="Typescript">
+                <li className={styles.tool} title="JavaScript">
                   <Image
-                    src="/typescript-logo.png"
-                    alt="Typescript logo"
-                    fill
-                  />
-                </li>
-              </a>
-              <a
-                href="https://www.atlassian.com/software/jira"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <li className={styles.tool} title="Jira">
-                  <Image
-                    src="/jira-logo.jpg"
-                    alt="Jira logo"
+                    src="/javascript-logo.png"
+                    alt="JavaScript logo"
                     fill
                     style={{
-                      objectFit: "cover",
-                      borderRadius: "50%",
-                      objectPosition: "right -7px top 0",
+                      borderRadius: "5px",
                     }}
                   />
                 </li>
               </a>
               <a
-                href="https://developer.chrome.com/docs/lighthouse/overview/"
+                href="https://www.java.com/en/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <li className={styles.tool} title="Lighthouse">
-                  <Image
-                    src="/lighthouse-logo.png"
-                    alt="Lighthouse logo"
-                    fill
-                  />
+                <li
+                  className={styles.tool}
+                  title="Java"
+                  style={{ backgroundColor: "white", borderRadius: "50%" }}
+                >
+                  <Image src="/java-logo.png" alt="Java logo" fill />
                 </li>
               </a>
               <a
-                href="https://github.com/features/actions"
+                href="https://about.gitlab.com/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <li className={styles.tool} title="Github Actions">
-                  <Image
-                    src="/github-actions-logo.png"
-                    alt="Github Actions logo"
-                    fill
-                  />
+                <li className={styles.tool} title="GitLab">
+                  <Image src="/gitlab-logo.png" alt="GitLab logo" fill />
+                </li>
+              </a>
+              <a
+                href="https://www.docker.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <li className={styles.tool} title="Docker">
+                  <Image src="/docker-logo.webp" alt="Docker logo" fill />
                 </li>
               </a>
             </ul>
