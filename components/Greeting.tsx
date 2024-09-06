@@ -14,7 +14,7 @@ export default function Greeting() {
       setCurrentIndex((curr: number) =>
         curr + 1 >= greetings.length ? 0 : curr + 1
       );
-    }, 5000);
+    }, 4000);
 
     animate(
       "#current",
