@@ -166,43 +166,43 @@ export default function Home() {
           animate="visible"
           className={styles.navigation}
         >
-          <motion.li variants={linkContainer}>
-            <motion.div
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              exit={{ opacity: 0, scale: 0 }}
-            >
-              <Link href="/about">
-                <div className={styles.button} title="About Me">
-                  <PersonIcon fontSize="inherit" />
-                </div>
-              </Link>
-            </motion.div>
+          <motion.li
+            variants={linkContainer}
+            className={styles.button_container}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            exit={{ opacity: 0, scale: 0 }}
+          >
+            <Link href="/about">
+              <div className={styles.button} title="About Me">
+                <PersonIcon fontSize="inherit" />
+              </div>
+            </Link>
           </motion.li>
 
-          <motion.li variants={linkContainer}>
-            <motion.div
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              exit={{ opacity: 0, scale: 0 }}
-            >
-              <Link href="/projects">
-                <div className={styles.button} title="My Projects">
-                  <ComputerIcon fontSize="inherit" />
-                </div>
-              </Link>
-            </motion.div>
+          <motion.li
+            variants={linkContainer}
+            className={styles.button_container}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            exit={{ opacity: 0, scale: 0 }}
+          >
+            <Link href="/projects">
+              <div className={styles.button} title="My Projects">
+                <ComputerIcon fontSize="inherit" />
+              </div>
+            </Link>
           </motion.li>
 
-          <motion.li variants={linkContainer}>
-            <motion.div
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              exit={{ opacity: 0, scale: 0 }}
-            >
-              <Link href="/experience">
-                <div className={styles.button} title="My Experience">
-                  <WorkIcon fontSize="inherit" />
-                </div>
-              </Link>
-            </motion.div>
+          <motion.li
+            variants={linkContainer}
+            className={styles.button_container}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            exit={{ opacity: 0, scale: 0 }}
+          >
+            <Link href="/experience">
+              <div className={styles.button} title="My Experience">
+                <WorkIcon fontSize="inherit" />
+              </div>
+            </Link>
           </motion.li>
         </motion.ol>
       </main>

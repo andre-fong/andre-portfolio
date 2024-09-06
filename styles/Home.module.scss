@@ -55,6 +55,25 @@
   }
 }
 
+.button_container {
+  border-radius: 50%;
+
+  &:nth-child(1) {
+    box-shadow: rgba(0, 0, 0, 0.3) -13px 19px 38px, rgba(0, 0, 0, 0.22) -13px 15px 12px;
+  }
+  &:nth-child(2) {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+  &:nth-child(3) {
+    box-shadow: rgba(0, 0, 0, 0.3) 13px 19px 38px, rgba(0, 0, 0, 0.22) 13px 15px 12px;
+  }
+
+  transition: scale 0.15s;
+}
+.button_container:hover {
+  scale: 1.1;
+}
+
 .button {
   z-index: 5;
   display: flex;
@@ -73,10 +92,6 @@
   svg, path {
     z-index: 5;
   }
-  transition: scale 0.15s;
-}
-.button:hover {
-  scale: 1.1;
 }
 .button::before {
   content: "";
@@ -109,6 +124,7 @@
   height: calc(100% - 4px);
   background: linear-gradient(45deg, rgb(40, 40, 40), rgb(120, 120, 120));
   border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   // box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .button:hover::after {
